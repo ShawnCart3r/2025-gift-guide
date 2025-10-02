@@ -1,0 +1,343 @@
+:root{
+  --bg:#eef1f6;
+  --paper:#fff;
+  --ink:#0b0c10;
+  --muted:#687086;
+  --ring:0 0 0 3px rgba(30,90,255,.15);
+
+  /* Holiday palette */
+  --holly-red:#d81f2a;
+  --pine-green:#0f7a3b;
+  --evergreen:#165c2f;
+  --gold:#f0c74a;
+  --snow:#f7fafc;
+
+  --safe-top:env(safe-area-inset-top,0px);
+  --safe-bottom:env(safe-area-inset-bottom,0px);
+
+  /* Gallery scaling (keeps socks fully visible) */
+  --sock-scale:0.92;
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+  background:
+    radial-gradient(1200px 800px at 10% -10%, rgba(255,255,255,.8), rgba(255,255,255,0) 60%),
+    radial-gradient(1000px 800px at 110% 0%, rgba(255,255,255,.7), rgba(255,255,255,0) 60%),
+    var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Container */
+.stage{max-width:1200px;margin:0 auto;padding:24px}
+.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.btn{padding:10px 14px;border-radius:10px;border:1px solid #dfe3ee;background:#fff;cursor:pointer}
+.btn:hover{border-color:var(--holly-red)}
+.btn:focus{outline:none;box-shadow:0 0 0 3px rgba(216,31,42,.15)}
+#pi{color:var(--muted)}
+
+/* Logo */
+.logo-container{display:flex;justify-content:center;align-items:center;margin-bottom:20px;width:100%}
+.logo{max-width:240px;height:auto;display:block;object-fit:contain}
+
+/* Book */
+.book{
+  width:100%;max-width:1000px;margin:0 auto;position:relative;height:auto;overflow:visible;
+  transform:rotateX(.7deg);transform-origin:center 80%;cursor:grab;backface-visibility:hidden;
+  transition:height .25s ease; box-shadow:0 16px 36px rgba(0,0,0,.08);
+}
+.book:active{cursor:grabbing}
+.book::before,.book::after{content:none}
+
+/* Pages */
+.page{
+  position:relative;background:var(--paper);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.06),0 10px 24px rgba(0,0,0,.08);
+  will-change:transform;contain:layout paint;backface-visibility:hidden;
+}
+.page::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(1200px 900px at 10% 10%, rgba(0,0,0,.03) 0%, rgba(0,0,0,0) 60%);
+  opacity:.16;pointer-events:none;
+}
+.page::after{
+  content:"";position:absolute;top:0;bottom:0;right:0;width:28px;
+  background:linear-gradient(90deg,rgba(0,0,0,0) 0%, rgba(16,96,52,.18) 100%);
+  pointer-events:none;
+}
+
+.cover{background:linear-gradient(145deg,#ffffff,#f1f2f4);border-color:transparent}
+.cover .cover-inner{height:100%;display:grid;place-items:center;text-align:center;padding:24px;position:relative}
+.cover .cover-inner::before{
+  content:"";position:absolute;inset:18px;border-radius:10px;border:3px solid var(--gold);
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.04);pointer-events:none;
+}
+
+/* Holiday “ribbon” on front cover only */
+.page.cover--front .cover-inner::after{
+  content:"Happy Holidays";position:absolute;top:22px;right:-46px;transform:rotate(35deg);
+  background:linear-gradient(90deg,var(--holly-red),var(--evergreen));color:#fff;font-weight:700;letter-spacing:.04em;
+  padding:8px 46px;border-radius:6px;box-shadow:0 6px 16px rgba(0,0,0,.12);pointer-events:none;
+}
+.page.cover--back .cover-inner::after{content:none !important;display:none !important}
+
+/* Candy-cane page border */
+.page:not(.cover){
+  border:6px solid transparent;
+  background:
+    linear-gradient(var(--paper),var(--paper)) padding-box,
+    repeating-linear-gradient(
+      45deg,
+      var(--holly-red), var(--holly-red) 10px,
+      #ffffff 10px, #ffffff 20px,
+      var(--pine-green) 20px, var(--pine-green) 30px,
+      #ffffff 30px, #ffffff 40px
+    ) border-box;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.05),0 12px 26px rgba(0,0,0,.09);
+}
+
+/* Page body (title + gallery) */
+.page-body{
+  padding:0;
+  flex:1;
+  display:grid;
+  grid-template-rows:auto minmax(0,1fr);
+  min-height:0;
+}
+.page h2{
+  margin:0;
+  padding:16px 18px;
+}
+
+/* ======================================
+   SOCK GALLERY — thin lines + hover darken
+   ====================================== */
+.page .gear-gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  grid-template-rows:repeat(2,minmax(0,1fr));
+  width:100%;
+  height:100%;
+  gap:0;                 /* tiles touching */
+  padding:0;
+  background:var(--paper);
+  box-sizing:border-box;
+}
+
+.page .gear-gallery .gear-tile{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid #666;             /* thin black-ish lines */
+  transition:border-color .18s ease; /* darken on hover */
+}
+
+.page .gear-gallery .gear-tile:hover{
+  border-color:#000;                 /* darker on hover */
+  z-index:1;
+}
+
+/* Images: fully visible, centered; no cropping */
+.page .gear-gallery .gear-tile>img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  object-position:center;
+  transform:scale(var(--sock-scale));
+  display:block;
+  transition:transform .18s ease;
+}
+
+.page .gear-gallery .gear-tile:hover>img{
+  transform:scale(calc(var(--sock-scale) * 1.05));
+}
+
+
+/* Dots */
+.dots{display:flex;justify-content:center;gap:8px;margin-top:12px}
+.dot{width:10px;height:10px;border-radius:50%;border:1px solid rgba(16,96,52,.35);background:#fff;cursor:pointer;transition:transform .15s ease}
+.dot:hover{transform:translateY(-1px) scale(1.05)}
+.dot.active{background:var(--pine-green);border-color:var(--pine-green);box-shadow:0 0 0 2px rgba(15,122,59,.12)}
+
+/* Drag hint (if you use it) */
+.drag-hint{position:absolute;width:88px;height:88px;pointer-events:none;z-index:6;opacity:0;transform:translateY(6px) scale(.98);transition:opacity .25s ease,transform .25s ease}
+.drag-hint.show{opacity:1;transform:translateY(0) scale(1)}
+.drag-hint.right{right:8px;bottom:8px}
+.drag-hint.left{left:8px;bottom:8px}
+.drag-hint .ear{
+  position:absolute;inset:auto 0 0 auto;width:84px;height:84px;border-bottom-right-radius:10px;
+  background:
+    conic-gradient(from 180deg at 100% 100%, rgba(0,0,0,.22), rgba(0,0,0,0) 40%),
+    radial-gradient(90px 90px at 100% 100%, #ffffff 0 70%, rgba(255,255,255,0) 71%);
+  filter:drop-shadow(0 8px 10px rgba(15,122,59,.18));
+}
+.drag-hint.left .ear{inset:auto auto 0 0;transform:scaleX(-1)}
+.drag-hint .label{
+  position:absolute;bottom:92px;right:0;font-size:.85rem;font-weight:600;background:#fff;border:1px solid rgba(16,96,52,.25);
+  padding:6px 10px;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.08);color:var(--evergreen);
+}
+
+/* Lock input during flips */
+.book-wrap.is-flipping,.book-wrap.is-flipping *{pointer-events:none !important}
+#prev[disabled],#next[disabled]{opacity:.5;cursor:not-allowed}
+
+/* Back cover images */
+.cover-inner img{
+  display:block;max-width:240px;width:100%;height:auto;margin:12px auto;object-fit:contain;border-radius:8px;
+  box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+.cover-inner h1{font-size:1.8rem;margin:16px 0 8px;color:var(--ink);text-align:center;line-height:1.2}
+.cover-inner p{margin-top:18px;font-size:1rem;text-align:center;color:var(--muted)}
+
+/* Flip clarity tweaks */
+.book .page,.book .page *{-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.book .page{transform-style:preserve-3d}
+.page-body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transform:translateZ(.001px)}
+.stf__outerShadow,.stf__hardShadow{opacity:.35 !important}
+.stf__block{-webkit-backface-visibility:hidden;backface-visibility:hidden;overflow:hidden}
+.book .page{outline:1px solid rgba(0,0,0,.06);outline-offset:-1px}
+@media (min-resolution:2dppx){.page-body{transform:translateZ(.002px)}}
+
+.stage,.book-wrap,.book{overflow-anchor:none}
+.book{transition:none}
+.book,.book .page,.book .page *{user-select:none;-webkit-user-select:none}
+.book img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
+.book{will-change:transform;transform:translateZ(0)}
+html{touch-action:manipulation}
+.book{touch-action:pan-y}
+
+/* =========================
+   Modal (click socks)
+   ========================= */
+.modal{ 
+  position:fixed; inset:0; display:grid; place-items:center; 
+  background:transparent; opacity:0; pointer-events:none; 
+  transition:opacity .18s ease; z-index:999; 
+}
+.modal.is-open{ opacity:1; pointer-events:auto; }
+.modal__backdrop{ position:absolute; inset:0; background:rgba(0,0,0,.55); }
+
+.modal__dialog{
+  position:relative; max-width:min(900px,90vw); width:fit-content;
+  max-height:min(86vh, 900px); background:#fff; border-radius:12px;
+  box-shadow:0 24px 60px rgba(0,0,0,.35);
+  overflow:hidden; display:grid; grid-template-columns:1fr; gap:0;
+  border:2px solid #000; /* clean black frame */
+}
+.modal__media{ display:grid; place-items:center; background:#fff; }
+.modal__media img{ max-width:88vw; max-height:70vh; object-fit:contain; display:block; }
+
+.modal__meta{ padding:14px 16px; border-top:1px solid #e6e8ef; }
+.modal__meta h3{ margin:0 0 6px; font-size:1.05rem; }
+.modal__meta p{ margin:0; color:#5f677a; }
+
+.modal__close{
+  position:absolute; top:8px; right:8px; width:36px; height:36px;
+  border-radius:8px; border:1px solid #dfe3ee; background:#fff; cursor:pointer;
+  font-size:22px; line-height:1; display:grid; place-items:center;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+.modal__close:hover{ border-color:#000; }
+
+/* Lock background while modal is open (prevents flips) */
+body.modal-open{ overflow:hidden; }
+body.modal-open .book-wrap,
+body.modal-open .book,
+body.modal-open .book *{ pointer-events:none !important; }
+body.modal-open .modal,
+body.modal-open .modal *{ pointer-events:auto !important; }
+
+/* Mobile tune-ups */
+@supports (-webkit-touch-callout:none){html{-webkit-text-size-adjust:100%}}
+
+@media (max-width:430px){
+  .stage{padding-top:calc(12px + var(--safe-top));padding-bottom:calc(12px + var(--safe-bottom))}
+  .book{
+    height:calc(68svh - var(--safe-top)*0 - var(--safe-bottom)*0);
+    max-height:calc(78svh - var(--safe-top) - var(--safe-bottom));
+    margin-left:auto;margin-right:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y;
+  }
+  .btn{padding:12px 16px;font-size:15px;min-width:44px}
+  #pi{font-size:14px}
+  .logo{max-width:180px}
+  .dots{margin-top:8px;gap:10px}
+  .dot{width:12px;height:12px}
+  :root{ --sock-scale:0.90; }
+  .page.cover--front .cover-inner::after{top:14px;right:-34px;padding:6px 34px;font-size:12px}
+  .cover .cover-inner::before{inset:14px}
+  .page:not(.cover){
+    border-width:4px;
+    background:
+      linear-gradient(var(--paper),var(--paper)) padding-box,
+      repeating-linear-gradient(
+        45deg,
+        var(--holly-red), var(--holly-red) 8px,
+        #ffffff 8px, #ffffff 16px,
+        var(--pine-green) 16px, var(--pine-green) 24px,
+        #ffffff 24px, #ffffff 32px
+      ) border-box;
+    border-radius:10px;
+  }
+  .page::before{opacity:.12}
+}
+
+/* Extra-small phones */
+@media (max-width:360px){
+  .page:not(.cover){border-width:3px}
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion:reduce){
+  .book,.drag-hint{transition:none !important}
+  .drag-hint .ear{animation:none !important}
+}
+.page::before,
+.page::after { z-index: 0; }
+
+/* Default children above pseudo-elements */
+.page > * { position: relative; z-index: 1; }
+
+/* Floating title hidden by default */
+.page h2{
+  position: absolute;
+  top: 12px;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  background: rgba(255,255,255,0.85);
+  border-radius: 6px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity .3s ease, transform .3s ease;
+  pointer-events: none;   /* don’t block hover when hidden */
+  z-index: 2;             /* above gallery tiles */
+}
+
+/* Reveal on hover (or when something inside is focused) */
+.page:hover h2,
+.page:focus-within h2{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Optional: always show the title on small touch screens */
+@media (max-width: 430px){
+  .page h2{
+    opacity: 1;
+    transform: none;
+    background: rgba(255,255,255,0.9);
+  }
+}
