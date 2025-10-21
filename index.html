@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fleet Feet Gift Guide Flipbook</title>
-
-  <!-- PageFlip CSS -->
-  <link rel="stylesheet" href="pageflip.css" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fleet Feet 2025 Gift Guide</title>
+  <link rel="stylesheet" href="pageflip.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="stage">
@@ -18,423 +16,254 @@
       <button id="next" class="btn" type="button" aria-label="Next page">Next ›</button>
     </header>
 
-    <!-- Book container -->
-    <div
-      id="book"
-      class="book"
-      tabindex="0"
-      role="application"
-      aria-label="Gift Guide Flipbook. Drag the corner or use the arrow keys to flip pages."
-    >
-      <!-- Cover -->
-      <section class="page cover" data-title="Cover" role="group" aria-label="Cover">
+    <!-- Book Container -->
+    <div id="book" class="book" tabindex="0" role="application" aria-label="Gift Guide Flipbook">
+      
+      <!-- Front Cover -->
+      <section class="page cover cover--front" data-title="Cover">
         <div class="cover-inner">
           <div class="logo-container">
-            <img src="image/FF VT Logo (1).jpg" alt="Fleet Feet Logo" class="logo" />
+            <img src="image/FF VT Logo (1).jpg" alt="Fleet Feet Logo" class="logo">
           </div>
-
           <h1>Fleet Feet 2025 Gift Guide</h1>
           <p>Flip through curated picks for every runner and walker</p>
         </div>
       </section>
 
-      <!-- Page 1 -->
-      <section class="page" data-title="Men's Picks" role="group" aria-label="Page 1: Men's Picks">
-        <!--  -->
+      <!-- Page 1: Running Socks -->
+      <section class="page" data-title="Running Socks">
         <h2>Running Socks</h2>
-        <div class="gear-gallery" role="list" aria-label="Men's Picks — Running gear">
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/balega-hidden-comfort.jpg"
-              alt="Balega Hidden Comfort"
-              data-title="Balega Hidden Comfort"
-              data-caption="Plush cushion • No-show • Blister guard"
-            >
+        <div class="gear-gallery">
+          <figure class="gear-tile" data-item="balega">
+            <img src="image/logos/darn-tough-2.jpg" alt="Darn Tough Socks">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/micro-crew-ultra-lightweight-darn tough.jpg"
-              alt="Darn Tough Micro Crew"
-              data-title="Darn Tough Micro Crew"
-              data-caption="Ultra lightweight • Lifetime guarantee"
-            >
+          <figure class="gear-tile" data-item="darntough">
+            <img src="image/logos/1-balega-logo-1.jpg" alt="Balega Socks">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/no-show-jocology.jpg"
-              alt="Jocology No-Show"
-              data-title="Jocology No-Show"
-              data-caption="Breathable • Sleek fit"
-            >
+          <figure class="gear-tile" data-item="jogology">
+            <img src="image/logos/jogology-logo.webp" alt="Jogology Socks">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/no-show-tab-darn-tough.jpg"
-              alt="Darn Tough No-Show Tab"
-              data-title="Darn Tough No-Show Tab"
-              data-caption="Durable • Lightweight • Blister-free"
-            >
+          <figure class="gear-tile" data-item="dttab">
+            <img src="image/socks/micro-crew-ultra-lightweight-darn tough.jpg" alt="Darn Tough No-Show">
           </figure>
         </div>
       </section>
 
-      <!-- Page 2 -->
-      <section class="page" data-title="Women's Picks" role="group" aria-label="Page 2: Women's Picks">
-        <div class="gear-gallery" role="list" aria-label="Men's Picks — Running gear">
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/balega-hidden-comfort.jpg"
-              alt="Balega Hidden Comfort"
-              data-title="Balega Hidden Comfort"
-              data-caption="Plush cushion • No-show • Blister guard"
-            >
+      <!-- Page 2: Cold Weather -->
+      <section class="page" data-title="Cold Weather">
+        <h2>Cold Weather Accessories</h2>
+        <div class="gear-gallery">
+          <figure class="gear-tile" data-item="balega">
+            <img src="image/socks/balega-hidden-comfort.jpg" alt="Running Gloves">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/micro-crew-ultra-lightweight-darn tough.jpg"
-              alt="Darn Tough Micro Crew"
-              data-title="Darn Tough Micro Crew"
-              data-caption="Ultra lightweight • Lifetime guarantee"
-            >
+          <figure class="gear-tile" data-item="darntough">
+            <img src="image/socks/micro-crew-ultra-lightweight-darn tough.jpg" alt="Headbands">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/no-show-jocology.jpg"
-              alt="Jocology No-Show"
-              data-title="Jocology No-Show"
-              data-caption="Breathable • Sleek fit"
-            >
+          <figure class="gear-tile" data-item="jogology">
+            <img src="image/socks/no-show-jocology.jpg" alt="Beanies">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/no-show-tab-darn-tough.jpg"
-              alt="Darn Tough No-Show Tab"
-              data-title="Darn Tough No-Show Tab"
-              data-caption="Durable • Lightweight • Blister-free"
-            >
+          <figure class="gear-tile" data-item="dttab">
+            <img src="image/socks/no-show-tab-darn-tough.jpg" alt="Neck Gaiters">
           </figure>
         </div>
       </section>
 
-      <!-- Page 4 -->
-      <section class="page" data-title="Recovery & Stocking Stuffers" role="group" aria-label="Page 4: Recovery & Stocking Stuffers">
-        <div class="gear-gallery" role="list" aria-label="Men's Picks — Running gear">
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/balega-hidden-comfort.jpg"
-              alt="Balega Hidden Comfort"
-              data-title="Balega Hidden Comfort"
-              data-caption="Plush cushion • No-show • Blister guard"
-            >
+      <!-- Page 3: Jackets -->
+      <section class="page" data-title="Jackets">
+        <h2>Jackets</h2>
+        <div class="gear-gallery">
+          <figure class="gear-tile" data-item="balega">
+            <img src="image/socks/balega-hidden-comfort.jpg" alt="Windbreaker Jackets">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/micro-crew-ultra-lightweight-darn tough.jpg"
-              alt="Darn Tough Micro Crew"
-              data-title="Darn Tough Micro Crew"
-              data-caption="Ultra lightweight • Lifetime guarantee"
-            >
+          <figure class="gear-tile" data-item="darntough">
+            <img src="image/socks/micro-crew-ultra-lightweight-darn tough.jpg" alt="Running Jackets">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/no-show-jocology.jpg"
-              alt="Jocology No-Show"
-              data-title="Jocology No-Show"
-              data-caption="Breathable • Sleek fit"
-            >
+          <figure class="gear-tile" data-item="jogology">
+            <img src="image/socks/no-show-jocology.jpg" alt="Rain Shells">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/no-show-tab-darn-tough.jpg"
-              alt="Darn Tough No-Show Tab"
-              data-title="Darn Tough No-Show Tab"
-              data-caption="Durable • Lightweight • Blister-free"
-            >
+          <figure class="gear-tile" data-item="dttab">
+            <img src="image/socks/no-show-tab-darn-tough.jpg" alt="Vests">
           </figure>
         </div>
       </section>
 
-      <!-- Page 5 -->
-      <section class="page" data-title="Recovery & Stocking Stuffers" role="group" aria-label="Page 5: Recovery & Stocking Stuffers">
-       <div class="gear-gallery" role="list" aria-label="Men's Picks — Running gear">
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/balega-hidden-comfort.jpg"
-              alt="Balega Hidden Comfort"
-              data-title="Balega Hidden Comfort"
-              data-caption="Plush cushion • No-show • Blister guard"
-            >
+      <!-- Page 4: Warm Layers -->
+      <section class="page" data-title="Warm Layers">
+        <h2>Warm Layers</h2>
+        <div class="gear-gallery">
+          <figure class="gear-tile" data-item="balega">
+            <img src="image/socks/balega-hidden-comfort.jpg" alt="Base Layers">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/micro-crew-ultra-lightweight-darn tough.jpg"
-              alt="Darn Tough Micro Crew"
-              data-title="Darn Tough Micro Crew"
-              data-caption="Ultra lightweight • Lifetime guarantee"
-            >
+          <figure class="gear-tile" data-item="darntough">
+            <img src="image/socks/micro-crew-ultra-lightweight-darn tough.jpg" alt="Thermal Tops">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/no-show-jocology.jpg"
-              alt="Jocology No-Show"
-              data-title="Jocology No-Show"
-              data-caption="Breathable • Sleek fit"
-            >
+          <figure class="gear-tile" data-item="jogology">
+            <img src="image/socks/no-show-jocology.jpg" alt="Fleece">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/no-show-tab-darn-tough.jpg"
-              alt="Darn Tough No-Show Tab"
-              data-title="Darn Tough No-Show Tab"
-              data-caption="Durable • Lightweight • Blister-free"
-            >
+          <figure class="gear-tile" data-item="dttab">
+            <img src="image/socks/no-show-tab-darn-tough.jpg" alt="Long Sleeves">
           </figure>
         </div>
       </section>
 
-      <!-- Page 6 -->
-      <section class="page" data-title="Recovery & Stocking Stuffers" role="group" aria-label="Page 6: Recovery & Stocking Stuffers">
-        <div class="gear-gallery" role="list" aria-label="Men's Picks — Running gear">
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/balega-hidden-comfort.jpg"
-              alt="Balega Hidden Comfort"
-              data-title="Balega Hidden Comfort"
-              data-caption="Plush cushion • No-show • Blister guard"
-            >
+      <!-- Page 5: Nutrition -->
+      <section class="page" data-title="Nutrition">
+        <h2>Nutrition</h2>
+        <div class="gear-gallery">
+          <figure class="gear-tile" data-item="balega">
+            <img src="image/socks/balega-hidden-comfort.jpg" alt="Energy Gels">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/micro-crew-ultra-lightweight-darn tough.jpg"
-              alt="Darn Tough Micro Crew"
-              data-title="Darn Tough Micro Crew"
-              data-caption="Ultra lightweight • Lifetime guarantee"
-            >
+          <figure class="gear-tile" data-item="darntough">
+            <img src="image/socks/micro-crew-ultra-lightweight-darn tough.jpg" alt="Hydration">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/no-show-jocology.jpg"
-              alt="Jocology No-Show"
-              data-title="Jocology No-Show"
-              data-caption="Breathable • Sleek fit"
-            >
+          <figure class="gear-tile" data-item="jogology">
+            <img src="image/socks/no-show-jocology.jpg" alt="Bars">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/no-show-tab-darn-tough.jpg"
-              alt="Darn Tough No-Show Tab"
-              data-title="Darn Tough No-Show Tab"
-              data-caption="Durable • Lightweight • Blister-free"
-            >
+          <figure class="gear-tile" data-item="dttab">
+            <img src="image/socks/no-show-tab-darn-tough.jpg" alt="Recovery">
           </figure>
         </div>
       </section>
 
-      <!-- Page 7 -->
-      <section class="page" data-title="Recovery & Stocking Stuffers" role="group" aria-label="Page 7: Recovery & Stocking Stuffers">
-       <div class="gear-gallery" role="list" aria-label="Men's Picks — Running gear">
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/balega-hidden-comfort.jpg"
-              alt="Balega Hidden Comfort"
-              data-title="Balega Hidden Comfort"
-              data-caption="Plush cushion • No-show • Blister guard"
-            >
+      <!-- Page 6: Electronics -->
+      <section class="page" data-title="Electronics">
+        <h2>Electronics</h2>
+        <div class="gear-gallery">
+          <figure class="gear-tile" data-item="balega">
+            <img src="image/socks/balega-hidden-comfort.jpg" alt="GPS Watches">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/micro-crew-ultra-lightweight-darn tough.jpg"
-              alt="Darn Tough Micro Crew"
-              data-title="Darn Tough Micro Crew"
-              data-caption="Ultra lightweight • Lifetime guarantee"
-            >
+          <figure class="gear-tile" data-item="darntough">
+            <img src="image/socks/micro-crew-ultra-lightweight-darn tough.jpg" alt="Headphones">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/no-show-jocology.jpg"
-              alt="Jocology No-Show"
-              data-title="Jocology No-Show"
-              data-caption="Breathable • Sleek fit"
-            >
+          <figure class="gear-tile" data-item="jogology">
+            <img src="image/socks/no-show-jocology.jpg" alt="Lights">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/no-show-tab-darn-tough.jpg"
-              alt="Darn Tough No-Show Tab"
-              data-title="Darn Tough No-Show Tab"
-              data-caption="Durable • Lightweight • Blister-free"
-            >
+          <figure class="gear-tile" data-item="dttab">
+            <img src="image/socks/no-show-tab-darn-tough.jpg" alt="Heart Rate Monitors">
           </figure>
         </div>
       </section>
 
-      <!-- Page 8 -->
-      <section class="page" data-title="Recovery & Stocking Stuffers" role="group" aria-label="Page 8: Recovery & Stocking Stuffers">
-        <div class="gear-gallery" role="list" aria-label="Men's Picks — Running gear">
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/balega-hidden-comfort.jpg"
-              alt="Balega Hidden Comfort"
-              data-title="Balega Hidden Comfort"
-              data-caption="Plush cushion • No-show • Blister guard"
-            >
+      <!-- Page 7: Lululemon -->
+      <section class="page" data-title="Lululemon">
+        <h2>Lululemon</h2>
+        <div class="gear-gallery">
+          <figure class="gear-tile" data-item="balega">
+            <img src="image/socks/balega-hidden-comfort.jpg" alt="Lululemon Tops">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/micro-crew-ultra-lightweight-darn tough.jpg"
-              alt="Darn Tough Micro Crew"
-              data-title="Darn Tough Micro Crew"
-              data-caption="Ultra lightweight • Lifetime guarantee"
-            >
+          <figure class="gear-tile" data-item="darntough">
+            <img src="image/socks/micro-crew-ultra-lightweight-darn tough.jpg" alt="Lululemon Bottoms">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/no-show-jocology.jpg"
-              alt="Jocology No-Show"
-              data-title="Jocology No-Show"
-              data-caption="Breathable • Sleek fit"
-            >
+          <figure class="gear-tile" data-item="jogology">
+            <img src="image/socks/no-show-jocology.jpg" alt="Lululemon Accessories">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/no-show-tab-darn-tough.jpg"
-              alt="Darn Tough No-Show Tab"
-              data-title="Darn Tough No-Show Tab"
-              data-caption="Durable • Lightweight • Blister-free"
-            >
+          <figure class="gear-tile" data-item="dttab">
+            <img src="image/socks/no-show-tab-darn-tough.jpg" alt="Lululemon Outerwear">
           </figure>
         </div>
       </section>
 
-      <!-- Page 9 -->
-      <section class="page" data-title="Recovery & Stocking Stuffers" role="group" aria-label="Page 9: Recovery & Stocking Stuffers">
-         <div class="gear-gallery" role="list" aria-label="Men's Picks — Running gear">
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/balega-hidden-comfort.jpg"
-              alt="Balega Hidden Comfort"
-              data-title="Balega Hidden Comfort"
-              data-caption="Plush cushion • No-show • Blister guard"
-            >
+      <!-- Page 8: Rabbit -->
+      <section class="page" data-title="Rabbit">
+        <h2>Rabbit</h2>
+        <div class="gear-gallery">
+          <figure class="gear-tile" data-item="balega">
+            <img src="image/socks/balega-hidden-comfort.jpg" alt="Rabbit Shorts">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/micro-crew-ultra-lightweight-darn tough.jpg"
-              alt="Darn Tough Micro Crew"
-              data-title="Darn Tough Micro Crew"
-              data-caption="Ultra lightweight • Lifetime guarantee"
-            >
+          <figure class="gear-tile" data-item="darntough">
+            <img src="image/socks/micro-crew-ultra-lightweight-darn tough.jpg" alt="Rabbit Tops">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/no-show-jocology.jpg"
-              alt="Jocology No-Show"
-              data-title="Jocology No-Show"
-              data-caption="Breathable • Sleek fit"
-            >
+          <figure class="gear-tile" data-item="jogology">
+            <img src="image/socks/no-show-jocology.jpg" alt="Rabbit Gear">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/no-show-tab-darn-tough.jpg"
-              alt="Darn Tough No-Show Tab"
-              data-title="Darn Tough No-Show Tab"
-              data-caption="Durable • Lightweight • Blister-free"
-            >
+          <figure class="gear-tile" data-item="dttab">
+            <img src="image/socks/no-show-tab-darn-tough.jpg" alt="Rabbit Accessories">
           </figure>
         </div>
       </section>
 
-      <!-- Page 10 -->
-      <section class="page" data-title="Recovery & Stocking Stuffers" role="group" aria-label="Page 10: Recovery & Stocking Stuffers">
-         <div class="gear-gallery" role="list" aria-label="Men's Picks — Running gear">
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/balega-hidden-comfort.jpg"
-              alt="Balega Hidden Comfort"
-              data-title="Balega Hidden Comfort"
-              data-caption="Plush cushion • No-show • Blister guard"
-            >
+      <!-- Page 9: Injury Prevention -->
+      <section class="page" data-title="Injury Prevention">
+        <h2>Injury Prevention</h2>
+        <div class="gear-gallery">
+          <figure class="gear-tile" data-item="balega">
+            <img src="image/socks/balega-hidden-comfort.jpg" alt="Foam Rollers">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/micro-crew-ultra-lightweight-darn tough.jpg"
-              alt="Darn Tough Micro Crew"
-              data-title="Darn Tough Micro Crew"
-              data-caption="Ultra lightweight • Lifetime guarantee"
-            >
+          <figure class="gear-tile" data-item="darntough">
+            <img src="image/socks/micro-crew-ultra-lightweight-darn tough.jpg" alt="Massage Tools">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/no-show-jocology.jpg"
-              alt="Jocology No-Show"
-              data-title="Jocology No-Show"
-              data-caption="Breathable • Sleek fit"
-            >
+          <figure class="gear-tile" data-item="jogology">
+            <img src="image/socks/no-show-jocology.jpg" alt="Compression Gear">
           </figure>
-          <figure class="gear-tile" role="listitem">
-            <img
-              src="/image/socks/no-show-tab-darn-tough.jpg"
-              alt="Darn Tough No-Show Tab"
-              data-title="Darn Tough No-Show Tab"
-              data-caption="Durable • Lightweight • Blister-free"
-            >
+          <figure class="gear-tile" data-item="dttab">
+            <img src="image/socks/no-show-tab-darn-tough.jpg" alt="Recovery Tools">
           </figure>
         </div>
       </section>
 
       <!-- Back Cover -->
-<section class="page cover back" data-title="Back Cover" role="group" aria-label="Back Cover">
-  <div class="cover-inner">
-    <img
-      src="image/giftcard - Copy.jpg"
-      alt="Fleet Feet Gift Card"
-      class="giftcard-img"
-      loading="eager"
-      decoding="async"
-      style="display:block;width:min(520px,90vw);max-height:55vh;object-fit:contain;margin-bottom:12px;"
-    >
-    <h1>Thanks for Flipping!</h1>
-    <h1>Gift Cards are Always Available!</h1>
-   
-    
-    <!--  <p>Shop online or visit us in store — order by Dec 18 to get it by Christmas!</p> -->
-  </div>
-</section>
+      <section class="page cover cover--back" data-title="Back Cover">
+        <div class="cover-inner">
+          <img src="image/giftcard - Copy.jpg" alt="Fleet Feet Gift Card" class="giftcard-img">
+          <h1>Thanks for Flipping!</h1>
+          <p>Gift Cards Available <a href="#" target="_blank">Online</a> and In Store!</p>
+        </div>
+      </section>
+
     </div>
 
     <!-- Page Dots -->
-    <div class="dots" role="tablist" aria-label="Flipbook page shortcuts">
-      <button class="dot active" data-index="0" role="tab" aria-selected="true"  aria-label="Go to page 1"></button>
-      <button class="dot"          data-index="1" role="tab" aria-selected="false" aria-label="Go to page 2"></button>
-      <button class="dot"          data-index="2" role="tab" aria-selected="false" aria-label="Go to page 3"></button>
-      <button class="dot"          data-index="3" role="tab" aria-selected="false" aria-label="Go to page 4"></button>
-      <button class="dot"          data-index="4" role="tab" aria-selected="false" aria-label="Go to page 5"></button>
-      <button class="dot"          data-index="5" role="tab" aria-selected="false" aria-label="Go to page 6"></button>
-      <button class="dot"          data-index="6" role="tab" aria-selected="false" aria-label="Go to page 7"></button>
-      <button class="dot"          data-index="7" role="tab" aria-selected="false" aria-label="Go to page 8"></button>
-      <button class="dot"          data-index="8" role="tab" aria-selected="false" aria-label="Go to page 9"></button>
-      <button class="dot"          data-index="9" role="tab" aria-selected="false" aria-label="Go to page 10"></button>
-      <button class="dot"          data-index="10" role="tab" aria-selected="false" aria-label="Go to page 11"></button>
-      <button class="dot"          data-index="11" role="tab" aria-selected="false" aria-label="Go to page 12 (Back Cover)"></button>
+    <div class="dots" role="tablist" aria-label="Page navigation">
+      <button class="dot active" data-index="0" role="tab" aria-label="Cover"></button>
+      <button class="dot" data-index="1" role="tab" aria-label="Running Socks"></button>
+      <button class="dot" data-index="2" role="tab" aria-label="Cold Weather"></button>
+      <button class="dot" data-index="3" role="tab" aria-label="Jackets"></button>
+      <button class="dot" data-index="4" role="tab" aria-label="Warm Layers"></button>
+      <button class="dot" data-index="5" role="tab" aria-label="Nutrition"></button>
+      <button class="dot" data-index="6" role="tab" aria-label="Electronics"></button>
+      <button class="dot" data-index="7" role="tab" aria-label="Lululemon"></button>
+      <button class="dot" data-index="8" role="tab" aria-label="Rabbit"></button>
+      <button class="dot" data-index="9" role="tab" aria-label="Injury Prevention"></button>
+      <button class="dot" data-index="10" role="tab" aria-label="Back Cover"></button>
     </div>
   </main>
 
-  <!-- Modal root (pairs with your modal JS in main.js) -->
-  <div id="sockModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="modal__backdrop" data-close></div>
-    <div class="modal__dialog" role="document">
-      <button class="modal__close" type="button" aria-label="Close" data-close>&times;</button>
-      <div class="modal__media">
-        <img id="modalImg" alt="">
-      </div>
-      <div class="modal__meta">
-        <h3 id="modalTitle"></h3>
-        <p id="modalAlt"></p>
+  <!-- Product Modal -->
+  <div class="modal" id="gearModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal__backdrop"></div>
+    <div class="modal__dialog">
+      <button class="modal__close" type="button" aria-label="Close">&times;</button>
+      
+      <div class="modal__grid">
+        <!-- Left Card -->
+        <div class="modal__card">
+          <div class="modal__cardInner" id="gmCardLeft">
+            <div class="modal__face modal__face--front">
+              <img id="gmImgLeft" alt="">
+            </div>
+            <div class="modal__face modal__face--back">
+              <div class="modal__backInner" id="gmBackLeft"></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Card -->
+        <div class="modal__card">
+          <div class="modal__cardInner" id="gmCardRight">
+            <div class="modal__face modal__face--front">
+              <img id="gmImgRight" alt="">
+            </div>
+            <div class="modal__face modal__face--back">
+              <div class="modal__backInner" id="gmBackRight"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <script src="pageflip.browser.js" defer></script>
   <script src="main.js" defer></script>
+  <script src="modal.js" defer></script>
 </body>
 </html>

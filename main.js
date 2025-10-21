@@ -1,233 +1,138 @@
-// main.js
+// Fleet Feet Flipbook - Main Controller
 document.addEventListener('DOMContentLoaded', () => {
-  // ---------- Resolve PageFlip constructor across builds ----------
-  function getPageFlipCtor() {
-    const candidates = [
-      () => (window.St && window.St.PageFlip),
+  
+  // ========================================
+  // FIND PAGEFLIP LIBRARY
+  // ========================================
+  function findPageFlip() {
+    const sources = [
+      () => window.St?.PageFlip,
       () => window.PageFlip,
-      () => (window.pageFlip && window.pageFlip.PageFlip),
-      () => (window.pageFlip && window.pageFlip.default),
-      () => window.StPageFlip,
-      () => window.stPageFlip,
+      () => window.pageFlip?.PageFlip,
+      () => window.pageFlip?.default,
     ];
-    for (const pick of candidates) {
+    
+    for (const getter of sources) {
       try {
-        const C = pick();
-        if (typeof C === 'function') return C;
+        const Ctor = getter();
+        if (typeof Ctor === 'function') return Ctor;
       } catch {}
     }
     return null;
   }
 
-  const PageFlipCtor = getPageFlipCtor();
+  const PageFlip = findPageFlip();
 
-  // ---------- DOM refs ----------
-  const bookEl = document.getElementById('book');
-  if (!bookEl) {
-    console.error('[flip] #book container not found');
+  // ========================================
+  // DOM ELEMENTS
+  // ========================================
+  const book = document.getElementById('book');
+  if (!book) {
+    console.error('Book element not found');
     return;
   }
-  const pages  = Array.from(bookEl.querySelectorAll('.page'));
-  const prev   = document.getElementById('prev');
-  const next   = document.getElementById('next');
-  const dots   = Array.from(document.querySelectorAll('.dot'));
-  const pnum   = document.getElementById('pnum');
-  const ptotal = document.getElementById('ptotal');
 
-  // We might not have a .book-wrap wrapper in your markup; guard for it
-  const wrap = document.querySelector('.book-wrap') || bookEl;
+  const pages = Array.from(book.querySelectorAll('.page'));
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+  const dots = Array.from(document.querySelectorAll('.dot'));
+  const pageNum = document.getElementById('pnum');
+  const pageTotal = document.getElementById('ptotal');
 
-  // ---------- Covers tagging ----------
-  function tagCovers() {
-    pages.forEach(p => p.classList.remove('cover--front','cover--back'));
-    if (pages.length) {
-      pages[0].classList.add('cover--front');
-      pages[pages.length - 1].classList.add('cover--back');
-    }
-  }
-  tagCovers();
+  console.log(`Found ${pages.length} pages and ${dots.length} dots`);
 
-  // ---------- Drag hint (dog-ear) ----------
-  const dragHintRight = document.createElement('div');
-  dragHintRight.className = 'drag-hint right';
-  dragHintRight.innerHTML = '<div class="ear"></div><div class="label">Drag to flip</div>';
-  const dragHintLeft = document.createElement('div');
-  dragHintLeft.className = 'drag-hint left';
-  dragHintLeft.innerHTML = '<div class="ear"></div><div class="label">Drag to flip</div>';
-  bookEl.appendChild(dragHintRight);
-  bookEl.appendChild(dragHintLeft);
-
-  const HINT_KEY = 'ff_seen_drag_hint';
-  let hintDismissed = localStorage.getItem(HINT_KEY) === '1';
-
-  function updateDragHints(idx, total) {
-    if (hintDismissed) {
-      dragHintLeft.className = 'drag-hint left';
-      dragHintRight.className = 'drag-hint right';
-      return;
-    }
-    const hasPrev = idx > 0;
-    const hasNext = idx < total - 1;
-    dragHintLeft.classList.toggle('show', hasPrev);
-    dragHintRight.classList.toggle('show', hasNext);
-    dragHintLeft.classList.toggle('pulse', hasPrev);
-    dragHintRight.classList.toggle('pulse', hasNext);
-  }
-  function dismissHintsForever() {
-    if (hintDismissed) return;
-    hintDismissed = true;
-    localStorage.setItem(HINT_KEY, '1');
-    dragHintLeft.classList.remove('show', 'pulse');
-    dragHintRight.classList.remove('show', 'pulse');
-  }
-
-  // ---------- Dots + page number ----------
-  function updateDotsUI(idx) {
-    if (pnum) pnum.textContent = String(idx + 1);
-    dots.forEach((d, i) => {
-      d.classList.toggle('active', i === idx);
-      d.setAttribute('aria-selected', i === idx ? 'true' : 'false');
-    });
-  }
-
-  // ---------- Height control (avoid jump on resize) ----------
-  function freezeDesktopHeight() {
-    if (window.innerWidth > 430) {
-      const h = Math.ceil(bookEl.getBoundingClientRect().height);
-      if (h > 0) bookEl.style.height = h + 'px';
-    } else {
-      bookEl.style.height = ''; // mobile uses CSS svh
-    }
-  }
-
-  // ---------- Corner/edge click helper ----------
-  function setupCornerEdgeClicks(onDecisionFn) {
-    const EDGE = 80; // px
-    function onUp(e) {
-      if (!window.flipRef) return;
-      const rect = bookEl.getBoundingClientRect();
-      const src  = (e.changedTouches && e.changedTouches[0]) || e;
-      const x = src.clientX, y = src.clientY;
-      if (x == null || y == null) return;
-      const nearBottom = y > rect.bottom - EDGE;
-      const nearRight  = x > rect.right - EDGE;
-      const nearLeft   = x < rect.left  + EDGE;
-      if (nearBottom && nearRight) onDecisionFn('next');
-      else if (nearBottom && nearLeft) onDecisionFn('prev');
-    }
-    bookEl.addEventListener('pointerup', onUp);
-    bookEl.addEventListener('touchend', onUp, { passive: true });
-  }
-
-  // ---------- Fallback (no PageFlip lib present) ----------
-  let current = 0;
-  let fbFlipping = false;
-
-  function fallbackRender() {
-    pages.forEach((p, i) => p.style.display = (i === current ? 'block' : 'none'));
-    if (ptotal) ptotal.textContent = String(pages.length);
-    updateDotsUI(current);
-    updateDragHints(current, pages.length);
-  }
-  function fbGuardFlip(to) {
-    if (fbFlipping) return;
-    fbFlipping = true;
-    current = Math.max(0, Math.min(pages.length - 1, to));
-    fallbackRender();
-    setTimeout(() => fbFlipping = false, 200);
-  }
-
-  // ---------- Modal (click socks) ----------
-  // (CSS already locks background with body.modal-open)
-  const modal = document.getElementById('sockModal');
-  const modalImg = document.getElementById('modalImg');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalAlt = document.getElementById('modalAlt');
-
-  function openModalFromTile(tile){
-    const img = tile.querySelector('img');
-    if(!img) return;
-    modalImg.src = img.getAttribute('src') || '';
-    modalImg.alt = img.getAttribute('alt') || '';
-    modalTitle.textContent = img.dataset.title || img.getAttribute('alt') || 'Product';
-    modalAlt.textContent = img.dataset.caption || '';
-    modal.classList.add('is-open');
-    document.body.classList.add('modal-open');
-    modal.setAttribute('aria-hidden','false');
-  }
-
-  function closeModal(){
-    modal.classList.remove('is-open');
-    document.body.classList.remove('modal-open');
-    modal.setAttribute('aria-hidden','true');
-    modalImg.src = '';
-  }
-
-  // Backdrop/close button
-  if (modal) {
-    modal.addEventListener('click', (e)=>{
-      if (e.target.hasAttribute('data-close')) closeModal();
-    });
-    document.addEventListener('keydown', (e)=>{
-      if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
-    });
-  }
-
-  // Guard to stop PageFlip seeing tile events
-  function guardTileEvent(ev){
-    const tile = ev.target.closest?.('.gear-tile');
-    if (!tile) return;
-    ev.stopPropagation();
-    if (ev.type !== 'touchstart') ev.preventDefault();
-  }
-
-  // Open modal on click (capture so it beats the flip lib)
-  bookEl.addEventListener('click', function(e){
-    const tile = e.target.closest && e.target.closest('.gear-tile');
-    if(!tile) return;
-    e.stopPropagation();
-    e.preventDefault();
-    openModalFromTile(tile);
-  }, {capture:true});
-
-  // Also block earliest interactions so flip never receives them
-  ['mousedown','pointerdown','touchstart','dblclick'].forEach(t=>{
-    bookEl.addEventListener(t, guardTileEvent, {capture:true, passive: t==='touchstart'});
+  // ========================================
+  // DRAG HINTS
+  // ========================================
+  const hintLeft = Object.assign(document.createElement('div'), {
+    className: 'drag-hint left',
+    innerHTML: '<div class="ear"></div><div class="label">Drag to flip</div>'
   });
+  
+  const hintRight = Object.assign(document.createElement('div'), {
+    className: 'drag-hint right',
+    innerHTML: '<div class="ear"></div><div class="label">Drag to flip</div>'
+  });
+  
+  book.append(hintLeft, hintRight);
 
-  // ---------- Initialize PageFlip or fallback ----------
-  if (!PageFlipCtor) {
-    console.warn('[flip] PageFlip constructor not found. Running in fallback mode.');
-    fallbackRender();
+  let hintsShown = false;
+  try {
+    hintsShown = sessionStorage.getItem('flipbook_hints') === '1';
+  } catch {}
 
-    prev?.addEventListener('click', () => fbGuardFlip(current - 1));
-    next?.addEventListener('click', () => fbGuardFlip(current + 1));
-    dots.forEach(d => d.addEventListener('click', () => fbGuardFlip(Number(d.dataset.index))));
-
-    // keyboard
-    bookEl.addEventListener('keydown', (e) => {
-      if (fbFlipping) return;
-      if (e.key === 'ArrowLeft')  fbGuardFlip(current - 1);
-      if (e.key === 'ArrowRight') fbGuardFlip(current + 1);
-    });
-
-    // corner edges
-    setupCornerEdgeClicks((dir) => fbGuardFlip(current + (dir === 'next' ? 1 : -1)));
-
-    // swallow dblclick everywhere
-    [bookEl, prev, next, ...dots].forEach(el => {
-      el?.addEventListener('dblclick', (e) => { e.preventDefault(); e.stopPropagation(); }, { capture: true });
-    });
-
-    // dismiss hint on any interaction
-    bookEl.addEventListener('pointerdown', dismissHintsForever, { passive: true });
-    bookEl.addEventListener('touchstart',  dismissHintsForever, { passive: true });
-
-    return; // done in fallback
+  function showHints(currentIdx, total) {
+    if (hintsShown) return;
+    
+    hintLeft.classList.toggle('show', currentIdx > 0);
+    hintRight.classList.toggle('show', currentIdx < total - 1);
   }
 
-  // ---------- PageFlip init ----------
-  const flip = new PageFlipCtor(bookEl, {
+  function hideHints() {
+    if (hintsShown) return;
+    hintsShown = true;
+    
+    try {
+      sessionStorage.setItem('flipbook_hints', '1');
+    } catch {}
+    
+    hintLeft.classList.remove('show');
+    hintRight.classList.remove('show');
+  }
+
+  // ========================================
+  // UPDATE UI
+  // ========================================
+  function updateUI(index) {
+    if (pageNum) pageNum.textContent = index + 1;
+    
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+      dot.setAttribute('aria-selected', i === index);
+    });
+  }
+
+  // ========================================
+  // FALLBACK MODE (NO LIBRARY)
+  // ========================================
+  if (!PageFlip) {
+    console.warn('PageFlip library not found - using fallback');
+    
+    let current = 0;
+    
+    function show(index) {
+      current = Math.max(0, Math.min(pages.length - 1, index));
+      pages.forEach((p, i) => p.style.display = i === current ? 'block' : 'none');
+      updateUI(current);
+      showHints(current, pages.length);
+      if (pageTotal) pageTotal.textContent = pages.length;
+    }
+    
+    show(0);
+    
+    prevBtn?.addEventListener('click', () => show(current - 1));
+    nextBtn?.addEventListener('click', () => show(current + 1));
+    
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const idx = Number(dot.dataset.index);
+        if (!isNaN(idx)) show(idx);
+      });
+    });
+    
+    book.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+    
+    book.addEventListener('pointerdown', hideHints, { once: true });
+    return;
+  }
+
+  // ========================================
+  // PAGEFLIP MODE
+  // ========================================
+  const flipbook = new PageFlip(book, {
     width: 980,
     height: 640,
     size: 'stretch',
@@ -235,140 +140,299 @@ document.addEventListener('DOMContentLoaded', () => {
     maxWidth: 1200,
     minHeight: 420,
     maxHeight: 900,
-    flippingTime: 800,
-    maxShadowOpacity: 0.35,
+    flippingTime: 600,
+    maxShadowOpacity: 0.25,
     drawShadow: true,
     showCover: true,
-    mobileScrollSupport: true,
-    swipeDistance: 20,
+    mobileScrollSupport: false,
+    swipeDistance: 50,
+    clickEventForward: false,
+    usePortrait: true,
+    autoSize: true,
   });
-  flip.loadFromHTML(pages);
-  window.flipRef = flip;
 
-  // Height + totals
-  freezeDesktopHeight();
-  window.addEventListener('resize', freezeDesktopHeight);
-  if (ptotal) ptotal.textContent = String(flip.getPageCount());
+  flipbook.loadFromHTML(pages);
+  window.flipRef = flipbook;
 
-  // Sync UI with flip index
-  function syncFromFlip(e) {
-    const idx = (e && typeof e.data === 'number') ? e.data : flip.getCurrentPageIndex();
-    updateDotsUI(idx);
-    updateDragHints(idx, flip.getPageCount());
-  }
-  syncFromFlip();
-  flip.on('flip', () => { syncFromFlip(); dismissHintsForever(); });
+  const total = flipbook.getPageCount();
+  if (pageTotal) pageTotal.textContent = total;
 
-  // ---------- Flip lock (prevents spam during animation) ----------
+  console.log(`PageFlip initialized with ${total} pages`);
+
+  // ========================================
+  // FLIP STATE CONTROL
+  // ========================================
   let flipping = false;
-  let flipUnlockTimer = null;
+  let flipTimer = null;
 
-  function lockUI() {
+  function lock() {
+    if (flipping) return false;
     flipping = true;
-    prev?.setAttribute('disabled', 'true');
-    next?.setAttribute('disabled', 'true');
-    wrap?.classList.add('is-flipping');
+    
+    prevBtn?.setAttribute('disabled', '');
+    nextBtn?.setAttribute('disabled', '');
+    
+    if (flipTimer) clearTimeout(flipTimer);
+    flipTimer = setTimeout(unlock, 1000);
+    
+    return true;
   }
-  function unlockUI() {
+
+  function unlock() {
     flipping = false;
-    if (flipUnlockTimer) { clearTimeout(flipUnlockTimer); flipUnlockTimer = null; }
-    prev?.removeAttribute('disabled');
-    next?.removeAttribute('disabled');
-    wrap?.classList.remove('is-flipping');
-  }
-  function startFlipLock() {
-    if (flipping) return;
-    lockUI();
-    const dur = (flip?.options?.flippingTime ?? 800) + 160;
-    flipUnlockTimer = setTimeout(unlockUI, dur);
+    prevBtn?.removeAttribute('disabled');
+    nextBtn?.removeAttribute('disabled');
+    if (flipTimer) {
+      clearTimeout(flipTimer);
+      flipTimer = null;
+    }
   }
 
-  // Controls
-  prev?.addEventListener('click', () => {
-    if (flipping) return;
-    try { flip.stopFlip?.(); } catch {}
-    startFlipLock();
-    flip.flipPrev();
-  });
-  next?.addEventListener('click', () => {
-    if (flipping) return;
-    try { flip.stopFlip?.(); } catch {}
-    startFlipLock();
-    flip.flipNext();
-  });
-  dots.forEach(d => d.addEventListener('click', () => {
-    if (flipping) return;
-    try { flip.stopFlip?.(); } catch {}
-    startFlipLock();
-    flip.flip(Number(d.dataset.index));
-  }));
+  function flip(action) {
+    if (!lock()) return;
+    try { flipbook.stopFlip?.(); } catch {}
+    action();
+  }
 
-  // Keyboard nav
-  bookEl.addEventListener('keydown', (e) => {
-    if (flipping) return;
-    if (e.key === 'ArrowLeft')  { startFlipLock(); flip.flipPrev(); }
-    if (e.key === 'ArrowRight') { startFlipLock(); flip.flipNext(); }
+  // ========================================
+  // SYNC UI WITH FLIPS
+  // ========================================
+  function sync(event) {
+    const idx = event?.data ?? flipbook.getCurrentPageIndex();
+    updateUI(idx);
+    showHints(idx, total);
+  }
+
+  sync();
+
+  flipbook.on('flip', event => {
+    sync(event);
+    hideHints();
+    unlock();
+  });
+
+  flipbook.on('changeState', event => {
+    if (event.data === 'read') unlock();
+  });
+
+  // ========================================
+  // NAVIGATION
+  // ========================================
+  prevBtn?.addEventListener('click', () => flip(() => flipbook.flipPrev()));
+  nextBtn?.addEventListener('click', () => flip(() => flipbook.flipNext()));
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const idx = Number(dot.dataset.index);
+      if (!isNaN(idx)) flip(() => flipbook.flip(idx));
+    });
+  });
+
+  document.addEventListener('keydown', e => {
+    if (!book.matches(':focus-within')) return;
+    
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      flip(() => flipbook.flipPrev());
+    }
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      flip(() => flipbook.flipNext());
+    }
+  });
+
+  // ========================================
+  // DRAG TO FLIP
+  // ========================================
+  let dragX = null;
+  let dragY = null;
+  let dragging = false;
+  const isMobile = 'ontouchstart' in window;
+
+  function startDrag(x, y, target) {
+    if (target.closest('.gear-tile') || flipping) return false;
+    dragX = x;
+    dragY = y;
+    dragging = false;
+    return true;
+  }
+
+  function moveDrag(x, y) {
+    if (dragX === null || flipping) return;
+    
+    const deltaX = Math.abs(x - dragX);
+    const deltaY = Math.abs(y - dragY);
+    
+    // Ignore vertical scrolls
+    if (deltaY > 30 && deltaY > deltaX) {
+      dragX = null;
+      return;
+    }
+    
+    if (deltaX > 15) {
+      dragging = true;
+      if (!isMobile) book.style.cursor = 'grabbing';
+    }
+  }
+
+  function endDrag(x) {
+    if (dragX === null || !dragging) {
+      dragX = null;
+      dragging = false;
+      if (!isMobile) book.style.cursor = 'grab';
+      return;
+    }
+
+    const delta = x - dragX;
+    
+    if (Math.abs(delta) > 50) {
+      if (delta < 0) {
+        flip(() => flipbook.flipNext());
+      } else {
+        flip(() => flipbook.flipPrev());
+      }
+    }
+
+    dragX = null;
+    dragging = false;
+    if (!isMobile) book.style.cursor = 'grab';
+  }
+
+  // Mouse events (desktop)
+  if (!isMobile) {
+    book.addEventListener('mousedown', e => {
+      if (startDrag(e.clientX, e.clientY, e.target)) {
+        e.preventDefault();
+      }
+    });
+
+    book.addEventListener('mousemove', e => {
+      moveDrag(e.clientX, e.clientY);
+    });
+
+    book.addEventListener('mouseup', e => {
+      endDrag(e.clientX);
+    });
+
+    book.addEventListener('mouseleave', () => {
+      dragX = null;
+      dragging = false;
+      book.style.cursor = 'grab';
+    });
+  }
+
+  // Touch events (mobile)
+  book.addEventListener('touchstart', e => {
+    const tile = e.target.closest('.gear-tile');
+    if (tile) return;
+    
+    const touch = e.touches[0];
+    startDrag(touch.clientX, touch.clientY, e.target);
+  }, { passive: true });
+
+  book.addEventListener('touchmove', e => {
+    if (dragX === null) return;
+    const touch = e.touches[0];
+    moveDrag(touch.clientX, touch.clientY);
+  }, { passive: true });
+
+  book.addEventListener('touchend', e => {
+    if (dragX === null) return;
+    const touch = e.changedTouches[0];
+    endDrag(touch.clientX);
+  }, { passive: true });
+
+  // ========================================
+  // PREVENT TILE CLICKS FROM FLIPPING
+  // ========================================
+  ['mousedown', 'pointerdown', 'touchstart'].forEach(evt => {
+    book.addEventListener(evt, e => {
+      if (e.target.closest('.gear-tile')) {
+        e.stopImmediatePropagation();
+        e.preventDefault();
+      }
+    }, { capture: true, passive: false });
+  });
+
+  book.addEventListener('click', e => {
+    const tile = e.target.closest('.gear-tile');
+    if (tile) {
+      e.stopPropagation();
+      return;
+    }
+    
+    if (flipping) {
+      e.stopImmediatePropagation();
+      e.preventDefault();
+    }
+  }, { capture: false });
+
+  // ========================================
+  // MOBILE COVER TAP
+  // ========================================
+  book.addEventListener('touchend', e => {
+    if (!window.matchMedia('(pointer: coarse)').matches) return;
+    if (flipbook.getCurrentPageIndex() !== 0) return;
+
+    const touch = e.changedTouches[0];
+    const rect = book.getBoundingClientRect();
+    
+    if (touch.clientX > rect.left + rect.width * 0.5) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      flip(() => flipbook.flipNext());
+    }
   }, { capture: true });
 
-  // Corner edge clicks
-  setupCornerEdgeClicks((dir) => {
-    if (flipping) return;
-    try { flip.stopFlip?.(); } catch {}
-    startFlipLock();
-    if (dir === 'next') flip.flipNext(); else flip.flipPrev();
+  // ========================================
+  // UTILITIES
+  // ========================================
+  
+  // Prevent double-click zoom
+  [book, prevBtn, nextBtn, ...dots].forEach(el => {
+    el?.addEventListener('dblclick', e => {
+      e.preventDefault();
+      e.stopPropagation();
+    }, { capture: true });
   });
 
-  // Swallow native double-clicks as extra safety
-  [bookEl, prev, next, ...dots].forEach(el => {
-    el?.addEventListener('dblclick', (e) => { e.preventDefault(); e.stopPropagation(); }, { capture: true });
-  });
-
-  // Kill dummy/hash links inside pages
-  bookEl.addEventListener('click', (e) => {
-    const a = e.target.closest && e.target.closest('a');
-    if (!a) return;
-    const href = (a.getAttribute('href') || '').trim();
+  // Prevent hash links from jumping
+  book.addEventListener('click', e => {
+    const link = e.target.closest('a');
+    if (!link) return;
+    
+    const href = link.getAttribute('href') || '';
     if (href === '' || href === '#' || href.startsWith('#')) {
       e.preventDefault();
       e.stopPropagation();
     }
   }, { capture: true });
 
-  // Dismiss hint on interaction
-  bookEl.addEventListener('pointerdown', dismissHintsForever, { passive: true });
-  bookEl.addEventListener('touchstart',  dismissHintsForever, { passive: true });
+  // Dismiss hints on interaction
+  book.addEventListener('pointerdown', hideHints, { once: true, passive: true });
 
-  // iPhone-friendly front-cover tap: tap right half to advance
-  function handleFrontCoverTap(e) {
-    const coarse = window.matchMedia?.('(pointer: coarse)').matches;
-    if (!coarse) return;
-    const idx = flip.getCurrentPageIndex();
-    if (idx !== 0) return; // only on front cover
-
-    const rect = bookEl.getBoundingClientRect();
-    const src  = (e.changedTouches && e.changedTouches[0]) || e;
-    const x = src?.clientX, y = src?.clientY;
-    if (x == null || y == null) return;
-
-    const rightHalf = x > rect.left + rect.width * 0.5;
-    const nearRightBottom = (x > rect.right - 100) && (y > rect.bottom - 120);
-    if (rightHalf || nearRightBottom) {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      startFlipLock();
-      try { flip.stopFlip?.(); } catch {}
-      flip.flipNext();
+  // Freeze height on desktop
+  let heightSet = false;
+  function setHeight() {
+    if (window.innerWidth > 430 && !heightSet) {
+      const h = book.getBoundingClientRect().height;
+      if (h > 0) {
+        book.style.height = `${Math.ceil(h)}px`;
+        heightSet = true;
+      }
+    } else if (window.innerWidth <= 430) {
+      book.style.height = '';
+      heightSet = false;
     }
   }
-  bookEl.addEventListener('touchend', handleFrontCoverTap, { capture: true });
-  bookEl.addEventListener('click',     handleFrontCoverTap, { capture: true });
+  
+  setHeight();
+  new ResizeObserver(setHeight).observe(book);
 
-  // Small polish: stop scroll-into-view jumps on interactive clicks while flipping
-  ['pointerdown','pointerup','touchend'].forEach(type => {
-    bookEl.addEventListener(type, (e) => {
-      if (!flipping) return;
-      e.stopImmediatePropagation();
-      if (type !== 'touchend') e.preventDefault();
-    }, { capture: true });
+  // Cleanup
+  window.addEventListener('beforeunload', () => {
+    if (flipTimer) clearTimeout(flipTimer);
   });
+
+  console.log('Flipbook ready!');
 });
