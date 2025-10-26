@@ -250,7 +250,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const isMobile = 'ontouchstart' in window;
 
   function startDrag(x, y, target) {
-    if (target.closest('.gear-tile') || flipping) return false;
+    // CHANGED: Exclude .info-tile from drag interactions
+    if (target.closest('.gear-tile:not(.info-tile)') || target.closest('.info-tile') || flipping) return false;
     dragX = x;
     dragY = y;
     dragging = false;
@@ -323,8 +324,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Touch events (mobile)
   book.addEventListener('touchstart', e => {
-    const tile = e.target.closest('.gear-tile');
-    if (tile) return;
+    // CHANGED: Exclude .info-tile from touch interactions
+    const tile = e.target.closest('.gear-tile:not(.info-tile)');
+    const infoTile = e.target.closest('.info-tile');
+    if (tile || infoTile) return;
     
     const touch = e.touches[0];
     startDrag(touch.clientX, touch.clientY, e.target);
@@ -347,6 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ========================================
   ['mousedown', 'pointerdown', 'touchstart'].forEach(evt => {
     book.addEventListener(evt, e => {
+      // CHANGED: Prevent all tile clicks (including .info-tile) from flipping pages
       if (e.target.closest('.gear-tile')) {
         e.stopImmediatePropagation();
         e.preventDefault();

@@ -363,6 +363,116 @@ body {
   opacity: 1; 
 }
 
+.gear-tile-info {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  cursor: default;
+  pointer-events: none;
+}
+
+.tile-info {
+  width: 100%;
+  min-height: 200px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(30, 30, 40, 0.9) 100%);
+  color: white;
+  padding: clamp(16px, 5vw, 24px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tile-info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.tile-info:active::before {
+  left: 100%;
+}
+
+.tile-info:active {
+  transform: scale(0.98);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* iPhone 12 specific optimizations */
+@media screen and (max-width: 390px) {
+  .tile-info {
+    min-height: 180px;
+    padding: 20px 16px;
+    border-radius: 12px;
+  }
+}
+
+/* Safe area support for notch devices */
+@supports (padding: max(0px)) {
+  .tile-info {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+}
+
+.tile-info h3 {
+  margin: 0 0 12px 0;
+  font-size: clamp(1.1rem, 4vw, 1.4rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tile-info p {
+  margin: 0;
+  font-size: clamp(0.85rem, 3.5vw, 1rem);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* Optional: Add icon or badge styling if needed */
+.tile-info .badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 12px;
+  width: fit-content;
+  backdrop-filter: blur(10px);
+}
+
+/* Improved readability on smaller screens */
+@media screen and (max-width: 390px) {
+  .tile-info h3 {
+    margin-bottom: 8px;
+    font-size: 1.15rem;
+  }
+  
+  .tile-info p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
+
 /* Close Button - Bigger for mobile */
 .modal__close {
   position: absolute;
@@ -605,6 +715,184 @@ body {
   font-size: 1.1em;
 }
 
+/* drop down */
+.product-detail {
+  --pd-bg: #ffffff;
+  --pd-bg-soft: #fafafa;
+  --pd-text: #1f2937;          /* slate-800 */
+  --pd-muted: #6b7280;         /* slate-500 */
+  --pd-border: #e5e7eb;        /* slate-200 */
+  --pd-accent: #7c4bd2;        /* your brand purple */
+  --pd-radius: 12px;
+  --pd-radius-sm: 8px;
+  --pd-shadow: 0 6px 20px rgba(0,0,0,.08);
+  --pd-transition: .22s cubic-bezier(.2,.6,.2,1);
+  color: var(--pd-text);
+}
+
+/* Optional: container card polish */
+.product-detail {
+  background: var(--pd-bg-soft);
+  border: 1px solid var(--pd-border);
+  border-radius: var(--pd-radius);
+  padding: 16px;
+}
+
+/* Headline */
+.product-detail > h2 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+
+/* ---------- Dropdown (details) ---------- */
+.product-detail .dropdown {
+  margin: 10px 0;
+  border: 1px solid var(--pd-border);
+  border-radius: var(--pd-radius-sm);
+  background: var(--pd-bg);
+  overflow: clip; /* crops animated content edges cleanly */
+  transition: box-shadow var(--pd-transition), border-color var(--pd-transition);
+}
+.product-detail .dropdown:hover {
+  border-color: #d9dce3;
+}
+.product-detail .dropdown[open] {
+  box-shadow: var(--pd-shadow);
+}
+
+/* Summary behaves like a button */
+.product-detail .dropdown > summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 14px;
+  font-weight: 600;
+  user-select: none;
+  position: relative;
+  outline: none; /* we'll use focus-visible */
+}
+
+/* Remove default marker (Chrome/Safari) */
+.product-detail .dropdown > summary::-webkit-details-marker { display: none; }
+
+/* Caret icon */
+.product-detail .dropdown > summary::after {
+  content: "";
+  margin-left: auto;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform var(--pd-transition), opacity var(--pd-transition);
+  opacity: .8;
+}
+.product-detail .dropdown[open] > summary::after {
+  transform: rotate(-135deg);
+}
+
+/* Hover & active states */
+.product-detail .dropdown > summary:hover {
+  background: #f8f8fb;
+}
+.product-detail .dropdown > summary:active {
+  background: #f1effa;
+}
+
+/* Accessible focus ring */
+.product-detail .dropdown > summary:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--pd-accent) 35%, white);
+  border-radius: calc(var(--pd-radius-sm) - 2px);
+}
+
+/* Divider line when open */
+.product-detail .dropdown[open] > summary {
+  border-bottom: 1px solid var(--pd-border);
+}
+
+/* ---------- Dropdown content ---------- */
+.product-detail .dropdown > *:not(summary) {
+  padding: 10px 16px 12px 18px;
+}
+
+/* Animate content in/out (opacity + slight slide) */
+.product-detail .dropdown .dropdown__content,
+.product-detail .dropdown ul {
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: 6px;
+  margin: 0;
+  padding: 10px 0 12px 2px; /* left space for bullets */
+  animation: pd-fade-slide var(--pd-transition);
+}
+
+@keyframes pd-fade-slide {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* List styling */
+.product-detail .dropdown ul {
+  list-style: none;
+}
+.product-detail .dropdown li {
+  position: relative;
+  padding: 4px 0 4px 16px;
+  color: var(--pd-text);
+  font-size: .955rem;
+}
+
+/* Custom bullet */
+.product-detail .dropdown li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .9em;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--pd-accent) 76%, black);
+  transform: translateY(-50%);
+  opacity: .9;
+}
+
+/* Spacing between stacked dropdowns */
+.product-detail .dropdown + .dropdown {
+  margin-top: 8px;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .product-detail .dropdown,
+  .product-detail .dropdown > summary::after,
+  .product-detail .dropdown .dropdown__content,
+  .product-detail .dropdown ul {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ---------- Dark mode ---------- */
+@media (prefers-color-scheme: dark) {
+  .product-detail {
+    --pd-bg: #0f1115;
+    --pd-bg-soft: #0b0d12;
+    --pd-text: #e5e7eb;
+    --pd-muted: #a3a7b0;
+    --pd-border: #262a33;
+    --pd-shadow: 0 6px 24px rgba(0,0,0,.45);
+  }
+  .product-detail .dropdown > summary:hover {
+    background: #131722;
+  }
+  .product-detail .dropdown > summary:active {
+    background: #171c2a;
+  }
+}
 /* Ripple */
 .ripple {
   position: absolute;

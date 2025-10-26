@@ -9,25 +9,102 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  const overlay = modal.querySelector('.modal__backdrop');
-  const closeBtn = modal.querySelector('.modal__close');
-  const leftCard = document.getElementById('gmCardLeft');
+  const overlay   = modal.querySelector('.modal__backdrop');
+  const closeBtn  = modal.querySelector('.modal__close');
+  const leftCard  = document.getElementById('gmCardLeft');
   const rightCard = document.getElementById('gmCardRight');
-  const leftImg = document.getElementById('gmImgLeft');
-  const rightImg = document.getElementById('gmImgRight');
-  const leftBack = document.getElementById('gmBackLeft');
+  const leftImg   = document.getElementById('gmImgLeft');
+  const rightImg  = document.getElementById('gmImgRight');
+  const leftBack  = document.getElementById('gmBackLeft');
   const rightBack = document.getElementById('gmBackRight');
 
-  // Product data
-  const PRODUCTS = {
-  // ============================================
-  // PAGE 1: RUNNING SOCKS
-  // ============================================
-  'socks-balega': {
-    leftImg: 'image/logos/darn-tough-2.jpg',
-    rightImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
+  // ==========================
+  // PRODUCTS
+  // ==========================
+ const PRODUCTS = {
+  // ========= SOCKS (verbatim) =========
+  
+  'socks-darntough': {
+    leftImg: 'image/logos/1-balega-logo-1.jpg',
+    rightImg: 'image/socks/balega-hidden-comfort.jpg',
     leftText: `
+     <div class="product-detail">
+        <span class="badge">Premium</span>
+        <h2>Balega</h2>
+        <div class="features">
+          <span class="feature-tag">🍃 Ultra Lightweight</span>
+          <span class="feature-tag">🇺🇸 Made in Vermont</span>
+          <span class="feature-tag">♾️ Lifetime Guarantee</span>
+        </div>
+        <p class="description">Fine-gauge Merino wool socks. Perfect for any season, any activity.</p>
+      </div>
+    `,
+    rightText: `
+     <div class="product-detail">
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Run</summary>
+          <ul>
+            <li>No Show Tab Ultra-LightWeight</li>
+            <li>No Show Tab Ultra-Lightweight-with Cushion</li>
+            <li>1/4 sock Ultra-Lightweight with Cushion</li>
+            
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>LifeStyle</summary>
+          <ul>
+            <li>Crew Lightweight</li>
+            <li>Crew Lightweight with Cushion</li>
+           
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Hike</summary>
+          <ul>
+            <li>Boot Sock Midweight with Cushion</li>
+            <li>Micro Crew Lightweigth with Cushion</li>
+            
+          </ul>
+        </details>
+      </div>
+    `
+  },
+  'socks-jogology': {
+    leftImg: 'image/logos/jogology-logo.webp',
+    rightImg: 'image/socks/no-show-jocology.jpg',
+    leftText: `
+     <div class="product-detail">
+        <span class="badge">Premium</span>
+        <h2>Jocology Socks</h2>
+        <div class="features">
+          <span class="feature-tag">🍃 Ultra Lightweight</span>
+          <span class="feature-tag">🇺🇸 Made in Vermont</span>
+          <span class="feature-tag">♾️ Lifetime Guarantee</span>
+        </div>
+        <p class="description">Fine-gauge Merino wool socks. Perfect for any season, any activity.</p>
+      </div>
+    `,
+    rightText: `
       <div class="product-detail">
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Jocology</summary>
+          <ul>
+                   <li>No Show Ultra Light</li>
+            <li>Crew</li>
+         
+          </ul>
+        </details>
+      
+      </div>
+    `
+  },
+  'socks-dttab': {
+    leftImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
+    rightImg: 'image/socks/no-show-tab-darn-tough.jpg',
+    leftText: `
+    <div class="product-detail">
         <span class="badge">Premium</span>
         <h2>Darn Tough Running Socks</h2>
         <div class="features">
@@ -39,806 +116,1096 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `,
     rightText: `
-      <div class="product-detail">
-        <h2>Our Darn Tough Selection</h2>
-        <ul class="carry-list">
-          <li>Micro Crew Lightweight</li>
-          <li>No-Show Tab Light Cushion</li>
-          <li>Quarter Crew Cushion</li>
-        </ul>
+       <div class="product-detail">
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Balega Socks</summary>
+          <ul>
+            <li>Hidden Comfort</li>
+            <li>Enduro 1/4</li>
+            <li>Enduro Crew</li>
+            <li>Silver Crew</li>
+          </ul>
+        </details>
+       
       </div>
     `
   },
 
-  'socks-darntough': {
-    leftImg: 'image/logos/1-balega-logo-1.jpg',
-    rightImg: 'image/socks/balega-hidden-comfort.jpg',
+  // ========= COLD WEATHER =========
+  'head-bands': {
+    leftImg: 'image/warm-winter/cep/cep-cold-headband.webp',
+    rightImg: 'image/socks/micro-crew-ultra-lightweight-darn%20tough.jpg',
     leftText: `
       <div class="product-detail">
-        <span class="badge badge-new">Bestseller</span>
-        <h2>Balega Hidden Comfort</h2>
-        <p class="description">The gold standard in running socks.</p>
+        <span class="badge">Winter</span>
+        <h2>Thermal Headbands</h2>
+        <div class="features">
+          <span class="feature-tag">❄️ Warm</span>
+          <span class="feature-tag">🧵 Soft Interior</span>
+          <span class="feature-tag">🏃‍♂️ No-Slip Fit</span>
+        </div>
+        <p class="description">Keep your ears warm without overheating — perfect for cold runs and brisk mornings.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Our Balega Selection</h2>
-        <ul class="carry-list">
-          <li>Hidden Comfort No-Show</li>
-          <li>Hidden Comfort Quarter</li>
-        </ul>
+        <details class="dropdown">
+          <summary>North Face</summary>
+          <ul>
+            <li>Base Headband</li>
+            <li>Cold Weather Handband</li>
+         
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Brooks</summary>
+          <ul>
+            <li>Luxe Thermal Headband</li>
+               
+            
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Brooks</summary>
+          <ul>
+            <li>Luxe Thermal Headband</li>
+            
+          </ul>
+        </details>
       </div>
     `
   },
-
-  'socks-jogology': {
-    leftImg: 'image/logos/jogology-logo.webp',
-    rightImg: 'image/socks/no-show-jocology.jpg',
-    leftText: `
-      <div class="product-detail">
-        <span class="badge badge-sport">Performance</span>
-        <h2>Jogology Running Socks</h2>
-        <p class="description">Technical running sock.</p>
-      </div>
-    `,
-    rightText: `
-      <div class="product-detail">
-        <h2>Our Jogology Selection</h2>
-        <ul class="carry-list">
-          <li>No-Show Tab Performance</li>
-          <li>Quarter Crew Sport</li>
-        </ul>
-      </div>
-    `
-  },
-
-  'socks-dttab': {
-    leftImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
-    rightImg: 'image/socks/no-show-tab-darn-tough.jpg',
-    leftText: `
-      <div class="product-detail">
-        <span class="badge">Premium</span>
-        <h2>Darn Tough No-Show Tab</h2>
-        <p class="description">The perfect invisible sock.</p>
-      </div>
-    `,
-    rightText: `
-      <div class="product-detail">
-        <h2>No-Show Collection</h2>
-        <ul class="carry-list">
-          <li>No-Show Tab Light Cushion</li>
-          <li>No-Show Tab Ultra-Light</li>
-        </ul>
-      </div>
-    `
-  },
-
-  // ============================================
-  // PAGE 2: COLD WEATHER ACCESSORIES
-  // ============================================
-  'cold-balega': {
+  'beanies': {
     leftImg: 'image/warm-winter/brooks/brooks-beanie.webp',
     rightImg: 'image/warm-winter/brooks/brooks-beanie.webp',
     leftText: `
       <div class="product-detail">
-        <span class="badge badge-winter">Winter Ready</span>
+        <span class="badge">Winter</span>
         <h2>Running Beanies</h2>
-        <p class="description">Keep your head warm on cold runs.</p>
+        <div class="features">
+          <span class="feature-tag">🧣 Cozy</span>
+          <span class="feature-tag">🫧 Breathable</span>
+          <span class="feature-tag">🌫️ Wind-Resistant</span>
+        </div>
+        <p class="description">Lightweight, moisture-wicking warmth without bulk.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Brooks Beanies</h2>
-        <ul class="carry-list">
-          <li>Lightweight Running Beanie</li>
-          <li>Thermal Fleece Beanie</li>
-        </ul>
+        <h2>Our Hats</h2>
+        <details class="dropdown">
+          <summary>Brooks</summary>
+          <ul>
+            <li>Notch Thermal Beanie</li>
+            
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Cep</summary>
+          <ul>
+            <li>Hidden Gap for Ponytal</li>
+           
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>North face</summary>
+          <ul>
+            <li>Base Beanie</li>
+            <li>Fairisle Beanie</li>
+            <li>W Oh Mega Pom BNE</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+         <details class="dropdown">
+          <summary>Headsweats</summary>
+          <ul>
+            <li>Fleet Feet Alpine </li>
+            <li>Fleet Feet Alpine Reversible Beanie</li>
+            
+          </ul>
+        </details>
+         <details class="dropdown">
+          <summary>Karitraa</summary>
+          <ul>
+            <li>Sundve Beanie</li>
+            
+          </ul>
+        </details>
       </div>
     `
   },
-
-  'cold-darntough': {
-    leftImg: 'image/warm-winter/cep/cep-cold-headband.webp',
-    rightImg: 'image/warm-winter/cep/cep-cold-headband.webp',
-    leftText: `
-      <div class="product-detail">
-        <span class="badge badge-winter">Winter Ready</span>
-        <h2>Running Headbands</h2>
-        <p class="description">Ear protection without the bulk.</p>
-      </div>
-    `,
-    rightText: `
-      <div class="product-detail">
-        <h2>CEP Headbands</h2>
-        <ul class="carry-list">
-          <li>Cold Weather Headband</li>
-          <li>Reflective Headband</li>
-        </ul>
-      </div>
-    `
-  },
-
-  'cold-jogology': {
-    leftImg: 'image/warm-winter/north/Summit-Series-DOTKNIT-Balaclava.avif',
-    rightImg: 'image/warm-winter/north/Summit-Series-DOTKNIT-Balaclava.avif',
-    leftText: `
-      <div class="product-detail">
-        <span class="badge badge-winter">Extreme Cold</span>
-        <h2>Balaclavas</h2>
-        <p class="description">Maximum protection for harsh conditions.</p>
-      </div>
-    `,
-    rightText: `
-      <div class="product-detail">
-        <h2>The North Face Balaclavas</h2>
-        <ul class="carry-list">
-          <li>Summit Series DOTKNIT Balaclava</li>
-          <li>Winter Running Balaclava</li>
-        </ul>
-      </div>
-    `
-  },
-
-  'cold-dttab': {
+  'gloves': {
     leftImg: 'image/warm-winter/north/Etip-Recycled-Gloves.avif',
     rightImg: 'image/warm-winter/north/Etip-Recycled-Gloves.avif',
     leftText: `
       <div class="product-detail">
-        <span class="badge badge-winter">Winter Ready</span>
+        <span class="badge">Winter</span>
         <h2>Running Gloves</h2>
-        <p class="description">Keep your hands warm and functional.</p>
+        <div class="features">
+          <span class="feature-tag">📱 Touchscreen</span>
+          <span class="feature-tag">💨 Wind Resistant</span>
+          <span class="feature-tag">🧤 Thermal Lining</span>
+        </div>
+        <p class="description">Stay warm and connected on cold miles.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>The North Face Gloves</h2>
-        <ul class="carry-list">
-          <li>Etip Recycled Gloves</li>
-          <li>Lightweight Running Gloves</li>
-          <li>Thermal Fleece Gloves</li>
-        </ul>
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>CEP</summary>
+          <ul>
+            <li>Pro Run Gloves 2 in 1 </li>
+            <li>Core Run Thermal Gloves</li>
+            
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>North Face</summary>
+          <ul>
+            <li>ETIP Trail Glove</li>
+            <li>Shelbe Raschel Etip Mitt</li>
+            <li>Etip TRail Glove</li>
+          
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Brooks</summary>
+          <ul>
+            <li>Fusion Midweight Glove 2.0</li>
+            <li>Shield Lobster Glove 2.0</li>
+            
+          </ul>
+        </details>
       </div>
     `
   },
 
-  // ============================================
-  // PAGE 3: JACKETS
-  // ============================================
-  'jackets-balega': {
-    leftImg: 'image/logos/brooks-logo.png',
-    rightImg: 'image/logos/brooks-logo.png',
+  // ========= JACKETS =========
+  'jackets-nb': {
+    leftImg: 'image/warm-winter/cep/cep-cold-headband.webp',
+    rightImg: 'image/socks/micro-crew-ultra-lightweight-darn%20tough.jpg',
     leftText: `
       <div class="product-detail">
-        <span class="badge">Windproof</span>
-        <h2>Brooks Windbreakers</h2>
-        <p class="description">Lightweight protection from wind and light rain.</p>
+        <span class="badge">Outerwear</span>
+        <h2>New Balance Jackets</h2>
+        <p class="description">Weather-resistant performance for all conditions.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Brooks Windbreaker Collection</h2>
-        <ul class="carry-list">
-          <li>Canopy Jacket</li>
-          <li>Shield Hybrid Jacket</li>
-        </ul>
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Jacket 1</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Jacket 2</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Jacket 3</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
       </div>
     `
   },
-
-  'jackets-darntough': {
-    leftImg: 'image/logos/New-Balance-Logo-1.png',
-    rightImg: 'image/logos/New-Balance-Logo-1.png',
+  'jackets-saucony': {
+    leftImg: 'image/warm-winter/brooks/brooks-beanie.webp',
+    rightImg: 'image/warm-winter/brooks/brooks-beanie.webp',
     leftText: `
       <div class="product-detail">
-        <span class="badge">All-Weather</span>
-        <h2>New Balance Running Jackets</h2>
-        <p class="description">Technical jackets for serious runners.</p>
+        <span class="badge">Outerwear</span>
+        <h2>Saucony Jackets</h2>
+        <p class="description">Lightweight protection for fast-paced runs.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>New Balance Jacket Collection</h2>
-        <ul class="carry-list">
-          <li>Impact Run Jacket</li>
-          <li>Q Speed Running Jacket</li>
-        </ul>
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Jacket 1</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Jacket 2</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Jacket 3</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
       </div>
     `
   },
-
-  'jackets-jogology': {
-    leftImg: 'image/logos/saucony-logo.png',
-    rightImg: 'image/logos/saucony-logo.png',
+  'jackets-brooks': {
+    leftImg: 'image/warm-winter/north/Etip-Recycled-Gloves.avif',
+    rightImg: 'image/warm-winter/north/Etip-Recycled-Gloves.avif',
     leftText: `
       <div class="product-detail">
-        <span class="badge">Waterproof</span>
-        <h2>Saucony Rain Shells</h2>
-        <p class="description">Stay dry in any weather.</p>
+        <span class="badge">Outerwear</span>
+        <h2>Brooks Jackets</h2>
+        <p class="description">Reliable weather protection for serious runners.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Saucony Shell Collection</h2>
-        <ul class="carry-list">
-          <li>Vitarun Rain Jacket</li>
-          <li>Packable Shell</li>
-        </ul>
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Jacket 1</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Jacket 2</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Jacket 3</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
       </div>
     `
   },
 
-  'jackets-dttab': {
-    leftImg: 'image/socks/no-show-tab-darn-tough.jpg',
-    rightImg: 'image/socks/no-show-tab-darn-tough.jpg',
-    leftText: `
-      <div class="product-detail">
-        <span class="badge">Versatile</span>
-        <h2>Running Vests</h2>
-        <p class="description">Core warmth without restricting arm movement.</p>
-      </div>
-    `,
-    rightText: `
-      <div class="product-detail">
-        <h2>Running Vest Collection</h2>
-        <ul class="carry-list">
-          <li>Insulated Vests</li>
-          <li>Windproof Vests</li>
-        </ul>
-      </div>
-    `
-  },
-
-  // ============================================
-  // PAGE 4: WARM LAYERS
-  // ============================================
-  'layers-balega': {
-    leftImg: 'image/socks/balega-hidden-comfort.jpg',
-    rightImg: 'image/socks/balega-hidden-comfort.jpg',
-    leftText: `
-      <div class="product-detail">
-        <span class="badge badge-winter">Base Layer</span>
-        <h2>Base Layers</h2>
-        <p class="description">Foundation for cold weather running.</p>
-      </div>
-    `,
-    rightText: `
-      <div class="product-detail">
-        <h2>Base Layer Selection</h2>
-        <ul class="carry-list">
-          <li>Merino Wool Base Layers</li>
-          <li>Synthetic Base Layers</li>
-        </ul>
-      </div>
-    `
-  },
-
-  'layers-darntough': {
+  // ========= WARM LAYERS =========
+  'warm-thermal': {
     leftImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
     rightImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
     leftText: `
       <div class="product-detail">
-        <span class="badge badge-winter">Thermal</span>
-        <h2>Thermal Tops</h2>
-        <p class="description">Extra warmth for the coldest days.</p>
+        <span class="badge">Layers</span>
+        <h2>Thermal Base Layers</h2>
+        <p class="description">Insulating warmth for cold weather training.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Thermal Top Collection</h2>
-        <ul class="carry-list">
-          <li>Half-Zip Thermal</li>
-          <li>Crew Neck Thermal</li>
-        </ul>
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Layer 1</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Layer 2</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Layer 3</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
       </div>
     `
   },
-
-  'layers-jogology': {
+  'warm-fleece': {
     leftImg: 'image/socks/no-show-jocology.jpg',
     rightImg: 'image/socks/no-show-jocology.jpg',
     leftText: `
       <div class="product-detail">
-        <span class="badge badge-winter">Fleece</span>
-        <h2>Fleece Layers</h2>
-        <p class="description">Cozy mid-layer warmth.</p>
+        <span class="badge">Layers</span>
+        <h2>Fleece Mid-Layers</h2>
+        <p class="description">Soft, breathable warmth for active comfort.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Fleece Collection</h2>
-        <ul class="carry-list">
-          <li>Quarter-Zip Fleece</li>
-          <li>Full-Zip Fleece</li>
-        </ul>
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Fleece 1</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Fleece 2</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Fleece 3</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
       </div>
     `
   },
-
-  'layers-dttab': {
+  'warm-ls': {
     leftImg: 'image/socks/no-show-tab-darn-tough.jpg',
     rightImg: 'image/socks/no-show-tab-darn-tough.jpg',
     leftText: `
       <div class="product-detail">
-        <span class="badge">Versatile</span>
-        <h2>Long Sleeve Shirts</h2>
-        <p class="description">Essential year-round running tops.</p>
+        <span class="badge">Layers</span>
+        <h2>Long Sleeve Tops</h2>
+        <p class="description">Versatile layering for variable conditions.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Long Sleeve Selection</h2>
-        <ul class="carry-list">
-          <li>Technical Long Sleeves</li>
-          <li>Thermal Long Sleeves</li>
-        </ul>
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Top 1</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Top 2</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Top 3</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
       </div>
     `
   },
 
-  // ============================================
-  // PAGE 5: NUTRITION
-  // ============================================
-  'nutrition-balega': {
-    leftImg: 'image/nutrition/birthday.webp',
-    rightImg: 'image/nutrition/birthday.webp',
+  // ========= NUTRITION =========
+  'nutrition-hydration': {
+    leftImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
+    rightImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
     leftText: `
       <div class="product-detail">
-        <span class="badge badge-sport">Energy</span>
-        <h2>Energy Gels</h2>
-        <p class="description">Quick fuel for long runs.</p>
+        <span class="badge">Fuel</span>
+        <h2>Hydration</h2>
+        <p class="description">Stay fueled and hydrated on the move.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Energy Gel Selection</h2>
-        <ul class="carry-list">
-          <li>GU Energy Gels</li>
-          <li>Maurten Gels</li>
-          <li>Honey Stinger Gels</li>
-        </ul>
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Option 1</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Option 2</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Option 3</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
       </div>
     `
   },
-
-  'nutrition-darntough': {
-    leftImg: 'image/nutrition/honey-chews.webp',
-    rightImg: 'image/nutrition/honey-chews.webp',
+  'nutrition-bars': {
+    leftImg: 'image/socks/no-show-jocology.jpg',
+    rightImg: 'image/socks/no-show-jocology.jpg',
     leftText: `
       <div class="product-detail">
-        <span class="badge badge-sport">Hydration</span>
-        <h2>Hydration Products</h2>
-        <p class="description">Stay hydrated on the run.</p>
-      </div>
-    `,
-    rightText: `
-      <div class="product-detail">
-        <h2>Hydration Selection</h2>
-        <ul class="carry-list">
-          <li>Electrolyte Drinks</li>
-          <li>Energy Chews</li>
-          <li>Hydration Tablets</li>
-        </ul>
-      </div>
-    `
-  },
-
-  'nutrition-jogology': {
-    leftImg: 'image/nutrition/tail.webp',
-    rightImg: 'image/nutrition/tail.webp',
-    leftText: `
-      <div class="product-detail">
-        <span class="badge badge-sport">Fuel</span>
+        <span class="badge">Fuel</span>
         <h2>Energy Bars</h2>
-        <p class="description">Solid fuel for sustained energy.</p>
+        <p class="description">Convenient nutrition for training and racing.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Energy Bar Selection</h2>
-        <ul class="carry-list">
-          <li>CLIF Bars</li>
-          <li>RX Bars</li>
-          <li>Trail Mix Bars</li>
-        </ul>
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Bar 1</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Bar 2</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Bar 3</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
       </div>
     `
   },
-
-  'nutrition-dttab': {
-    leftImg: 'image/nutrition/honey-bar.webp',
-    rightImg: 'image/nutrition/honey-bar.webp',
+  'nutrition-recovery': {
+    leftImg: 'image/socks/no-show-tab-darn-tough.jpg',
+    rightImg: 'image/socks/no-show-tab-darn-tough.jpg',
     leftText: `
       <div class="product-detail">
-        <span class="badge badge-sport">Recovery</span>
-        <h2>Recovery Products</h2>
-        <p class="description">Recover faster after hard efforts.</p>
+        <span class="badge">Fuel</span>
+        <h2>Recovery Nutrition</h2>
+        <p class="description">Post-run fuel for optimal recovery.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Recovery Selection</h2>
-        <ul class="carry-list">
-          <li>Protein Bars</li>
-          <li>Recovery Drinks</li>
-          <li>BCAA Supplements</li>
-        </ul>
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Recovery 1</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Recovery 2</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Recovery 3</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
       </div>
     `
   },
 
-  // ============================================
-  // PAGE 6: ELECTRONICS
-  // ============================================
-  'electronics-balega': {
-    leftImg: 'image/electronics/garmin-265.webp',
-    rightImg: 'image/electronics/garmin-265.webp',
+  // ========= ELECTRONICS =========
+  'elec-headphones': {
+    leftImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
+    rightImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
     leftText: `
       <div class="product-detail">
-        <span class="badge badge-tech">GPS</span>
-        <h2>GPS Running Watches</h2>
-        <p class="description">Track your runs with precision.</p>
+        <span class="badge">Tech</span>
+        <h2>Headphones</h2>
+        <p class="description">Wireless audio for distraction-free miles.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>GPS Watch Selection</h2>
-        <ul class="carry-list">
-          <li>Garmin Forerunner 265</li>
-          <li>Garmin Forerunner 955</li>
-          <li>COROS Pace 3</li>
-        </ul>
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Shokz</summary>
+          <ul>
+            <li>Open Move</li>
+            <li>Open Pro 2</li>
+            <li>Open Fit</li>
+            <li>Open Swim</li>
+          </ul>
+        </details>
+       
       </div>
     `
   },
-
-  'electronics-darntough': {
-    leftImg: 'image/electronics/shokz.webp',
-    rightImg: 'image/electronics/shokz.webp',
+  'elec-lights': {
+    leftImg: 'image/socks/no-show-jocology.jpg',
+    rightImg: 'image/socks/no-show-jocology.jpg',
     leftText: `
       <div class="product-detail">
-        <span class="badge badge-tech">Audio</span>
-        <h2>Running Headphones</h2>
-        <p class="description">Safe, comfortable audio for running.</p>
-      </div>
-    `,
-    rightText: `
-      <div class="product-detail">
-        <h2>Headphone Selection</h2>
-        <ul class="carry-list">
-          <li>Shokz OpenRun Pro</li>
-          <li>Shokz OpenFit</li>
-          <li>Bone Conduction Headphones</li>
-        </ul>
-      </div>
-    `
-  },
-
-  'electronics-jogology': {
-    leftImg: 'image/electronics/mini-thera.webp',
-    rightImg: 'image/electronics/mini-thera.webp',
-    leftText: `
-      <div class="product-detail">
-        <span class="badge badge-tech">Safety</span>
+        <span class="badge">Tech</span>
         <h2>Running Lights</h2>
-        <p class="description">Be seen and stay safe.</p>
+        <p class="description">Stay visible during early morning or evening runs.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Light Selection</h2>
-        <ul class="carry-list">
-          <li>Headlamps</li>
-          <li>Chest Lights</li>
-          <li>Clip-On Lights</li>
-        </ul>
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Garmin</summary>
+          <ul>
+            <li>Forerunner 165 Music</li>
+            <li>Forerunner 265s</li>
+          
+          </ul>
+        </details>
+        
+       
       </div>
     `
   },
-
-  // ============================================
-  // PAGE 7: LULULEMON
-  // ============================================
-  'lululemon-balega': {
-    leftImg: 'image/socks/balega-hidden-comfort.jpg',
-    rightImg: 'image/socks/balega-hidden-comfort.jpg',
-    leftText: `
-      <div class="product-detail">
-        <span class="badge badge-premium">Premium</span>
-        <h2>Lululemon Tops</h2>
-        <p class="description">Technical running shirts and tanks.</p>
-      </div>
-    `,
-    rightText: `
-      <div class="product-detail">
-        <h2>Lululemon Top Selection</h2>
-        <ul class="carry-list">
-          <li>Metal Vent Tech</li>
-          <li>Swiftly Tech</li>
-          <li>Fast and Free Tops</li>
-        </ul>
-      </div>
-    `
-  },
-
-  'lululemon-darntough': {
-    leftImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
-    rightImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
-    leftText: `
-      <div class="product-detail">
-        <span class="badge badge-premium">Premium</span>
-        <h2>Lululemon Bottoms</h2>
-        <p class="description">Performance running shorts and tights.</p>
-      </div>
-    `,
-    rightText: `
-      <div class="product-detail">
-        <h2>Lululemon Bottom Selection</h2>
-        <ul class="carry-list">
-          <li>Fast and Free Tights</li>
-          <li>Surge Shorts</li>
-          <li>Pace Breaker Shorts</li>
-        </ul>
-      </div>
-    `
-  },
-
-  'lululemon-jogology': {
-    leftImg: 'image/socks/no-show-jocology.jpg',
-    rightImg: 'image/socks/no-show-jocology.jpg',
-    leftText: `
-      <div class="product-detail">
-        <span class="badge badge-premium">Premium</span>
-        <h2>Lululemon Accessories</h2>
-        <p class="description">Complete your running outfit.</p>
-      </div>
-    `,
-    rightText: `
-      <div class="product-detail">
-        <h2>Lululemon Accessory Selection</h2>
-        <ul class="carry-list">
-          <li>Run Hats</li>
-          <li>Headbands</li>
-          <li>Running Belts</li>
-        </ul>
-      </div>
-    `
-  },
-
-  'lululemon-dttab': {
+  'elec-watches': {
     leftImg: 'image/socks/no-show-tab-darn-tough.jpg',
     rightImg: 'image/socks/no-show-tab-darn-tough.jpg',
     leftText: `
       <div class="product-detail">
-        <span class="badge badge-premium">Premium</span>
-        <h2>Lululemon Outerwear</h2>
-        <p class="description">Weather protection with style.</p>
+        <span class="badge">Tech</span>
+        <h2>GPS Watches</h2>
+        <p class="description">Track your performance with precision.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Lululemon Outerwear Selection</h2>
-        <ul class="carry-list">
-          <li>Define Jacket</li>
-          <li>Running Vests</li>
-          <li>Rain Jackets</li>
-        </ul>
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Thera</summary>
+          <ul>
+            <li>Thera Gun Mini</li>
+            <li>Thera Gun Prime</li>
+            
+          </ul>
+        </details>
+       
       </div>
     `
   },
 
-  // ============================================
-  // PAGE 8: RABBIT
-  // ============================================
-  'rabbit-balega': {
-    leftImg: 'image/socks/balega-hidden-comfort.jpg',
-    rightImg: 'image/socks/balega-hidden-comfort.jpg',
-    leftText: `
-      <div class="product-detail">
-        <span class="badge badge-sport">Performance</span>
-        <h2>Rabbit Running Shorts</h2>
-        <p class="description">Lightweight, comfortable running shorts.</p>
-      </div>
-    `,
-    rightText: `
-      <div class="product-detail">
-        <h2>Rabbit Short Selection</h2>
-        <ul class="carry-list">
-          <li>EZ Shorts</li>
-          <li>No Swim Shorts</li>
-          <li>Half-Tights</li>
-        </ul>
-      </div>
-    `
-  },
-
-  'rabbit-darntough': {
+  // ========= LULULEMON =========
+  'lulu-bottoms': {
     leftImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
     rightImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
     leftText: `
       <div class="product-detail">
-        <span class="badge badge-sport">Performance</span>
-        <h2>Rabbit Tops</h2>
-        <p class="description">Technical running shirts for all conditions.</p>
+        <span class="badge">Apparel</span>
+        <h2>Bottoms</h2>
+        <p class="description">High-performance tights and shorts.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Rabbit Top Selection</h2>
-        <ul class="carry-list">
-          <li>FKT Shirt</li>
-          <li>Lightweight Tanks</li>
-          <li>Long Sleeve Tees</li>
-        </ul>
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Bottom 1</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Bottom 2</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Bottom 3</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
       </div>
     `
   },
-
-  'rabbit-jogology': {
+  'lulu-accessories': {
     leftImg: 'image/socks/no-show-jocology.jpg',
     rightImg: 'image/socks/no-show-jocology.jpg',
     leftText: `
       <div class="product-detail">
-        <span class="badge badge-sport">Performance</span>
-        <h2>Rabbit Running Gear</h2>
-        <p class="description">Complete running apparel collection.</p>
+        <span class="badge">Apparel</span>
+        <h2>Accessories</h2>
+        <p class="description">Essential add-ons for every workout.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Rabbit Gear Selection</h2>
-        <ul class="carry-list">
-          <li>Running Tights</li>
-          <li>Training Apparel</li>
-          <li>Race Day Gear</li>
-        </ul>
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Accessory 1</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Accessory 2</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Accessory 3</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
       </div>
     `
   },
-
-  'rabbit-dttab': {
+  'lulu-outerwear': {
     leftImg: 'image/socks/no-show-tab-darn-tough.jpg',
     rightImg: 'image/socks/no-show-tab-darn-tough.jpg',
     leftText: `
       <div class="product-detail">
-        <span class="badge badge-sport">Performance</span>
-        <h2>Rabbit Accessories</h2>
-        <p class="description">Complete your Rabbit kit.</p>
+        <span class="badge">Apparel</span>
+        <h2>Outerwear</h2>
+        <p class="description">Weather-ready layers for urban miles.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Rabbit Accessory Selection</h2>
-        <ul class="carry-list">
-          <li>Running Hats</li>
-          <li>Arm Sleeves</li>
-          <li>Running Belts</li>
-        </ul>
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Outerwear 1</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Outerwear 2</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Outerwear 3</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
       </div>
     `
   },
 
-  // ============================================
-  // PAGE 9: INJURY PREVENTION
-  // ============================================
-  'injury-balega': {
-    leftImg: 'image/socks/balega-hidden-comfort.jpg',
-    rightImg: 'image/socks/balega-hidden-comfort.jpg',
-    leftText: `
-      <div class="product-detail">
-        <span class="badge badge-recovery">Recovery</span>
-        <h2>Foam Rollers</h2>
-        <p class="description">Self-myofascial release for recovery.</p>
-      </div>
-    `,
-    rightText: `
-      <div class="product-detail">
-        <h2>Foam Roller Selection</h2>
-        <ul class="carry-list">
-          <li>Standard Foam Rollers</li>
-          <li>Textured Rollers</li>
-          <li>Vibrating Rollers</li>
-        </ul>
-      </div>
-    `
-  },
-
-  'injury-darntough': {
+  // ========= RABBIT =========
+  'rabbit-tops': {
     leftImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
     rightImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
     leftText: `
       <div class="product-detail">
-        <span class="badge badge-recovery">Recovery</span>
+        <span class="badge">Rabbit</span>
+        <h2>Tops</h2>
+        <p class="description">Feathery soft, runner-made essentials.</p>
+      </div>
+    `,
+    rightText: `
+       <div class="product-detail">
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Top 1</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Top 2</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Top 3</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+      </div>
+    `
+  },
+  'rabbit-gear': {
+    leftImg: 'image/socks/no-show-jocology.jpg',
+    rightImg: 'image/socks/no-show-jocology.jpg',
+    leftText: `
+      <div class="product-detail">
+        <span class="badge">Rabbit</span>
+        <h2>Gear</h2>
+        <p class="description">Shorts, caps, and go-fast accessories.</p>
+      </div>
+    `,
+    rightText: `
+      <div class="product-detail">
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Gear 1</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Gear 2</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Gear 3</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+      </div>
+    `
+  },
+  'rabbit-accessories': {
+    leftImg: 'image/socks/no-show-tab-darn-tough.jpg',
+    rightImg: 'image/socks/no-show-tab-darn-tough.jpg',
+    leftText: `
+      <div class="product-detail">
+        <span class="badge">Rabbit</span>
+        <h2>Accessories</h2>
+        <p class="description">Everyday run add-ons that work hard.</p>
+      </div>
+    `,
+    rightText: `
+      <div class="product-detail">
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Accessory 1</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Accessory 2</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Accessory 3</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+      </div>
+    `
+  },
+
+  // ========= INJURY PREVENTION =========
+  'injury-massage': {
+    leftImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
+    rightImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
+    leftText: `
+      <div class="product-detail">
+        <span class="badge">Recovery</span>
         <h2>Massage Tools</h2>
-        <p class="description">Target specific muscle groups.</p>
+        <p class="description">Rollers and percussion for sore spots.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Massage Tool Selection</h2>
-        <ul class="carry-list">
-          <li>Massage Balls</li>
-          <li>Massage Sticks</li>
-          <li>Percussion Massagers</li>
-        </ul>
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Tool 1</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Tool 2</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Tool 3</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
       </div>
     `
   },
-
-  'injury-jogology': {
+  'injury-compression': {
     leftImg: 'image/socks/no-show-jocology.jpg',
     rightImg: 'image/socks/no-show-jocology.jpg',
     leftText: `
       <div class="product-detail">
-        <span class="badge badge-recovery">Recovery</span>
-        <h2>Compression Gear</h2>
-        <p class="description">Improve circulation and recovery.</p>
+        <span class="badge">Recovery</span>
+        <h2>Compression</h2>
+        <p class="description">Targeted support for calves and ankles.</p>
       </div>
     `,
     rightText: `
-      <div class="product-detail">
-        <h2>Compression Selection</h2>
-        <ul class="carry-list">
-          <li>Compression Socks</li>
-          <li>Compression Sleeves</li>
-          <li>Compression Tights</li>
-        </ul>
+       <div class="product-detail">
+        <h2>Picks</h2>
+        <details class="dropdown">
+          <summary>Compression 1</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Compression 2</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Compression 3</summary>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+          </ul>
+        </details>
       </div>
     `
   },
-
-  'injury-dttab': {
+  'injury-super-feet': {
     leftImg: 'image/socks/no-show-tab-darn-tough.jpg',
     rightImg: 'image/socks/no-show-tab-darn-tough.jpg',
     leftText: `
       <div class="product-detail">
-        <span class="badge badge-recovery">Recovery</span>
-        <h2>Recovery Tools</h2>
-        <p class="description">Complete recovery toolkit.</p>
+        <span class="badge">Recovery</span>
+        <h2>Super Feet</h2>
+        <p class="description">Work smarter between sessions.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Recovery Tool Selection</h2>
-        <ul class="carry-list">
-          <li>Ice Packs</li>
-          <li>Heating Pads</li>
-          <li>KT Tape</li>
-          <li>Stretching Straps</li>
-        </ul>
+        <details class="dropdown">
+          <summary>Super Feet We Carry</summary>
+          <ul class="carry-list">
+            <li>Green</li>
+            <li>Pink</li>
+            <li>Blue</li>
+            <li>Orange</li>
+            <li>Dynamic</li>
+            <li>Green Hiking</li>
+            <li>Hiking Pink</li>
+            <li>Copper</li>
+            <li>Grey</li>
+          </ul>
+        </details>
       </div>
     `
   },
 
-  // ============================================
-  // DEFAULT FALLBACK
-  // ============================================
-  'default': {
+  // ========= FALLBACK =========
+  default: {
     leftImg: 'image/logos/darn-tough-2.jpg',
     rightImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
-    leftText: `
-      <div class="product-detail">
-        <h2>Featured Product</h2>
-        <p class="description">Explore our running gear collection.</p>
-      </div>
-    `,
-    rightText: `
-      <div class="product-detail">
-        <h2>Visit Us</h2>
-        <p class="description">Come see our full selection in store.</p>
-      </div>
-    `
+    leftText: `<div class="product-detail"><h2>Featured Product</h2></div>`,
+    rightText: `<div class="product-detail"><h2>Visit Us</h2></div>`
   }
 };
+
+  // ==========================
+  // PAGE-SCOPED ITEM MAP (all 9 pages)
+  // ==========================
+  const ITEM_MAP = {
+    'Running Socks': {
+      darntough: 'socks-darntough',
+      jogology:  'socks-jogology',
+      dttab:     'socks-dttab',
+    },
+    'Cold Weather': {
+      'head-bands': 'head-bands',
+      beanies:      'beanies',
+      gloves:       'gloves',
+    },
+    'Jackets': {
+      darntough: 'jackets-nb',
+      jogology:  'jackets-saucony',
+      dttab:     'jackets-brooks',
+    },
+    'Warm Layers': {
+      darntough: 'warm-thermal',
+      jogology:  'warm-fleece',
+      dttab:     'warm-ls',
+    },
+    'Nutrition': {
+      darntough: 'nutrition-hydration',
+      jogology:  'nutrition-bars',
+      dttab:     'nutrition-recovery',
+    },
+    'Electronics': {
+      darntough: 'elec-headphones',
+      jogology:  'elec-lights',
+      dttab:     'elec-watches',
+    },
+    'Lululemon': {
+      darntough: 'lulu-bottoms',
+      jogology:  'lulu-accessories',
+      dttab:     'lulu-outerwear',
+    },
+    'Rabbit': {
+      darntough: 'rabbit-tops',
+      jogology:  'rabbit-gear',
+      dttab:     'rabbit-accessories',
+    },
+    'Injury Prevention': {
+      darntough: 'injury-massage',
+      jogology:  'injury-compression',
+      dttab:     'injury-super-feet',
+    },
+  };
+
+  // ==========================
+  // Modal open/close
+  // ==========================
   function openModal(productKey) {
     console.log('[modal] Opening:', productKey);
-    const data = PRODUCTS[productKey] || PRODUCTS['default'];
+    const data = PRODUCTS[productKey] || PRODUCTS.default;
     
-    if (leftImg) leftImg.src = data.leftImg;
+    if (leftImg)  leftImg.src  = data.leftImg;
     if (rightImg) rightImg.src = data.rightImg;
-    if (leftBack) leftBack.innerHTML = data.leftText;
+    if (leftBack)  leftBack.innerHTML  = data.leftText;
     if (rightBack) rightBack.innerHTML = data.rightText;
     
-    if (leftCard) leftCard.classList.remove('is-flipped');
+    if (leftCard)  leftCard.classList.remove('is-flipped');
     if (rightCard) rightCard.classList.remove('is-flipped');
     
     modal.classList.add('is-open');
@@ -853,116 +1220,91 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Close handlers
-  if (closeBtn) {
-    closeBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      closeModal();
-    });
-  }
-
-  if (overlay) {
-    overlay.addEventListener('click', closeModal);
-  }
-
+  if (closeBtn) closeBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeModal();
+  });
+  if (overlay) overlay.addEventListener('click', closeModal);
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('is-open')) {
-      closeModal();
-    }
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
   });
 
-  // Card flip
+  // ==========================
+  // Card flip (with guard to ignore dropdown area)
+  // ==========================
   function setupCardFlip(card) {
     if (!card) return;
-    
     card.addEventListener('click', (e) => {
+      // If click originated inside product-detail (dropdowns, labels, etc.), ignore
+      if (e.target.closest('.product-detail')) return;
       e.stopPropagation();
       card.classList.toggle('is-flipped');
     });
   }
-
   setupCardFlip(leftCard);
   setupCardFlip(rightCard);
 
-  // CRITICAL FOR MOBILE: Use capture phase to intercept before main.js blocks it
+  // ==========================
+  // Tile listeners (mobile + desktop)
+  // ==========================
   function attachTileListeners() {
     const tiles = document.querySelectorAll('.gear-tile');
     console.log('[modal] Found tiles:', tiles.length);
     
-    tiles.forEach((tile, index) => {
+    tiles.forEach((tile) => {
       const page = tile.closest('.page');
-      const pageTitle = page ? page.getAttribute('data-title') : '';
+      const pageTitle = page ? (page.getAttribute('data-title') || '').trim() : '';
       const item = tile.getAttribute('data-item');
-      
-      let productKey = 'default';
-      
-      if (pageTitle.includes('Running Socks')) productKey = `socks-${item}`;
-      else if (pageTitle.includes('Cold Weather')) productKey = `cold-${item}`;
-      else if (pageTitle.includes('Jackets')) productKey = `jackets-${item}`;
-      else if (pageTitle.includes('Warm Layers')) productKey = `layers-${item}`;
-      else if (pageTitle.includes('Nutrition')) productKey = `nutrition-${item}`;
-      else if (pageTitle.includes('Electronics')) productKey = `electronics-${item}`;
-      else if (pageTitle.includes('Lululemon')) productKey = `lululemon-${item}`;
-      else if (pageTitle.includes('Rabbit')) productKey = `rabbit-${item}`;
-      else if (pageTitle.includes('Injury')) productKey = `injury-${item}`;
-      
-      // Store product key on element
-      tile.dataset.modalProduct = productKey;
-      
-      // STRATEGY 1: Use CAPTURE PHASE to intercept BEFORE main.js
-      // This fires before the main.js blocking code
+
+      // Resolve via page map → raw item → default
+      const sectionMap = ITEM_MAP[pageTitle] || {};
+      let productKey = sectionMap[item] || item;
+      if (!PRODUCTS[productKey]) {
+        console.warn('[modal] No PRODUCT for key:', productKey, '(page:', pageTitle, 'item:', item, ') — using default');
+        productKey = 'default';
+      }
+
+      tile.dataset.modalProduct = productKey; // for debugging
+
+      // Mobile: capture taps
       tile.addEventListener('touchstart', (e) => {
         const now = Date.now();
-        console.log('[modal] Touch start (capture):', productKey, 'time:', now);
         tile.dataset.touchStartTime = now.toString();
         tile.dataset.touchStartX = e.touches[0].clientX.toString();
         tile.dataset.touchStartY = e.touches[0].clientY.toString();
       }, { capture: true, passive: true });
       
       tile.addEventListener('touchend', (e) => {
-        console.log('[modal] Touch end (capture):', productKey);
-        console.log('[modal] Stored data:', tile.dataset.touchStartTime, tile.dataset.touchStartX);
-        
-        // Check if touchstart was captured
         if (!tile.dataset.touchStartTime) {
-          console.log('[modal] ⚠️ No touchstart data - opening modal anyway!');
           e.preventDefault();
           e.stopPropagation();
           e.stopImmediatePropagation();
           openModal(productKey);
           return;
         }
-        
-        const startTime = parseInt(tile.dataset.touchStartTime);
+        const startTime = parseInt(tile.dataset.touchStartTime, 10);
         const startX = parseFloat(tile.dataset.touchStartX);
         const startY = parseFloat(tile.dataset.touchStartY);
         const endX = e.changedTouches[0].clientX;
         const endY = e.changedTouches[0].clientY;
-        
         const duration = Date.now() - startTime;
-        const distance = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2));
-        
-        console.log('[modal] Tap check - duration:', duration, 'distance:', distance);
-        
-        // Only open if it was a tap (not a drag/swipe)
+        const distance = Math.hypot(endX - startX, endY - startY);
+
         if (duration < 800 && distance < 50) {
-          console.log('[modal] ✓ Valid tap detected! Opening modal...');
           e.preventDefault();
           e.stopPropagation();
           e.stopImmediatePropagation();
           openModal(productKey);
-        } else {
-          console.log('[modal] ✗ Not a tap - duration:', duration, 'ms, distance:', Math.round(distance), 'px');
         }
-        
-        // Clear data
+
         delete tile.dataset.touchStartTime;
         delete tile.dataset.touchStartX;
         delete tile.dataset.touchStartY;
       }, { capture: true, passive: false });
-      
-      // STRATEGY 2: Also listen for click events (works on desktop)
+
+      // Desktop click (guard against clicks inside an embedded product-detail)
       tile.addEventListener('click', (e) => {
-        console.log('[modal] Click event:', productKey);
+        if (e.target.closest('.product-detail')) return;
         e.stopPropagation();
         openModal(productKey);
       });
@@ -971,8 +1313,33 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('[modal] Listeners attached');
   }
 
-  // Delay attachment slightly to ensure main.js is loaded
+  // Delay to allow other scripts to attach
   setTimeout(attachTileListeners, 200);
+
+  // ==========================
+  // Delegated guards inside modal (capture)
+  // - Prevent dropdown/label interactions from bubbling to flips or tiles
+  // - Works for dynamically-inserted content (via innerHTML)
+  // ==========================
+  (function installModalGuards() {
+    const SAFE_SELECTOR = '.product-detail, .product-detail *';
+    const stopEvents = [
+      'click',
+      'mousedown','mouseup',
+      'pointerdown','pointerup',
+      'touchstart','touchend',
+      'keydown','keyup'
+    ];
+    stopEvents.forEach(evt => {
+      modal.addEventListener(evt, (e) => {
+        if (e.target.closest(SAFE_SELECTOR)) {
+          // Contain event without breaking native control behavior
+          e.stopPropagation();
+          e.stopImmediatePropagation?.();
+        }
+      }, { capture: true, passive: evt.startsWith('touch') ? true : false });
+    });
+  })();
 
   console.log('[modal] Setup complete');
 });
