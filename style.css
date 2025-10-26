@@ -877,7 +877,7 @@ body {
 }
 
 /* ---------- Dark mode ---------- */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   .product-detail {
     --pd-bg: #0f1115;
     --pd-bg-soft: #0b0d12;
@@ -892,7 +892,7 @@ body {
   .product-detail .dropdown > summary:active {
     background: #171c2a;
   }
-}
+} */
 /* Ripple */
 .ripple {
   position: absolute;
