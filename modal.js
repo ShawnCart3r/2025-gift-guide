@@ -25,12 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // ========= SOCKS (verbatim) =========
   
   'socks-darntough': {
-    leftImg: 'image/logos/1-balega-logo-1.jpg',
+    leftImg: 'image/logos/darn-tough-2.jpg',
     rightImg: 'image/socks/balega-hidden-comfort.jpg',
     leftText: `
      <div class="product-detail">
         <span class="badge">Premium</span>
-        <h2>Balega</h2>
+        <h2>Darn Tough</h2>
         <div class="features">
           <span class="feature-tag">🍃 Ultra Lightweight</span>
           <span class="feature-tag">🇺🇸 Made in Vermont</span>
@@ -101,12 +101,12 @@ document.addEventListener('DOMContentLoaded', () => {
     `
   },
   'socks-dttab': {
-    leftImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
-    rightImg: 'image/socks/no-show-tab-darn-tough.jpg',
+    leftImg: 'image/logos/1-balega-logo-1.jpg',
+    rightImg: 'image/socks/balega-hidden-comfort.jpg',
     leftText: `
     <div class="product-detail">
         <span class="badge">Premium</span>
-        <h2>Darn Tough Running Socks</h2>
+        <h2>Balega</h2>
         <div class="features">
           <span class="feature-tag">🍃 Ultra Lightweight</span>
           <span class="feature-tag">🇺🇸 Made in Vermont</span>
@@ -166,17 +166,11 @@ document.addEventListener('DOMContentLoaded', () => {
             
           </ul>
         </details>
-        <details class="dropdown">
-          <summary>Brooks</summary>
-          <ul>
-            <li>Luxe Thermal Headband</li>
-            
-          </ul>
-        </details>
+      
       </div>
     `
   },
-  'beanies': {
+ 'beanies': {
     leftImg: 'image/warm-winter/brooks/brooks-beanie.webp',
     rightImg: 'image/warm-winter/brooks/brooks-beanie.webp',
     leftText: `
@@ -198,44 +192,39 @@ document.addEventListener('DOMContentLoaded', () => {
           <summary>Brooks</summary>
           <ul>
             <li>Notch Thermal Beanie</li>
-            
           </ul>
         </details>
         <details class="dropdown">
-          <summary>Cep</summary>
+          <summary>CEP</summary>
           <ul>
-            <li>Hidden Gap for Ponytal</li>
-           
+            <li>Hidden Gap for Ponytail</li>
           </ul>
         </details>
         <details class="dropdown">
-          <summary>North face</summary>
+          <summary>North Face</summary>
           <ul>
             <li>Base Beanie</li>
             <li>Fairisle Beanie</li>
             <li>W Oh Mega Pom BNE</li>
-            <li>Item 4</li>
           </ul>
         </details>
-         <details class="dropdown">
+        <details class="dropdown">
           <summary>Headsweats</summary>
           <ul>
-            <li>Fleet Feet Alpine </li>
+            <li>Fleet Feet Alpine</li>
             <li>Fleet Feet Alpine Reversible Beanie</li>
-            
           </ul>
         </details>
-         <details class="dropdown">
-          <summary>Karitraa</summary>
+        <details class="dropdown">
+          <summary>Kari Traa</summary>
           <ul>
             <li>Sundve Beanie</li>
-            
           </ul>
         </details>
       </div>
     `
-  },
-  'gloves': {
+},
+ 'gloves': {
     leftImg: 'image/warm-winter/north/Etip-Recycled-Gloves.avif',
     rightImg: 'image/warm-winter/north/Etip-Recycled-Gloves.avif',
     leftText: `
@@ -256,9 +245,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <details class="dropdown">
           <summary>CEP</summary>
           <ul>
-            <li>Pro Run Gloves 2 in 1 </li>
+            <li>Pro Run Gloves 2 in 1</li>
             <li>Core Run Thermal Gloves</li>
-            
           </ul>
         </details>
         <details class="dropdown">
@@ -266,8 +254,6 @@ document.addEventListener('DOMContentLoaded', () => {
           <ul>
             <li>ETIP Trail Glove</li>
             <li>Shelbe Raschel Etip Mitt</li>
-            <li>Etip TRail Glove</li>
-          
           </ul>
         </details>
         <details class="dropdown">
@@ -275,21 +261,20 @@ document.addEventListener('DOMContentLoaded', () => {
           <ul>
             <li>Fusion Midweight Glove 2.0</li>
             <li>Shield Lobster Glove 2.0</li>
-            
           </ul>
         </details>
       </div>
     `
-  },
+},
 
   // ========= JACKETS =========
   'jackets-nb': {
-    leftImg: 'image/warm-winter/cep/cep-cold-headband.webp',
-    rightImg: 'image/socks/micro-crew-ultra-lightweight-darn%20tough.jpg',
+    leftImg: 'image/jacket/northface/northface-summit-removebg-preview.png',
+    rightImg: 'image/jacket/northface/lifestyle-northface-removebg-preview.png',
     leftText: `
       <div class="product-detail">
         <span class="badge">Outerwear</span>
-        <h2>New Balance Jackets</h2>
+        <h2>Northface</h2>
         <p class="description">Weather-resistant performance for all conditions.</p>
       </div>
     `,
@@ -297,42 +282,25 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="product-detail">
         <h2>Picks</h2>
         <details class="dropdown">
-          <summary>Jacket 1</summary>
+          <summary>North Face</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+            <li>Breithorn LT HYB HDY</li>
+            <li>WW Pro Jacket</li>
+            <li>Winter Warm Pro</li>
+           
           </ul>
         </details>
-        <details class="dropdown">
-          <summary>Jacket 2</summary>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </details>
-        <details class="dropdown">
-          <summary>Jacket 3</summary>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </details>
+       
       </div>
     `
   },
   'jackets-saucony': {
-    leftImg: 'image/warm-winter/brooks/brooks-beanie.webp',
-    rightImg: 'image/warm-winter/brooks/brooks-beanie.webp',
+    leftImg: 'image/logos/asics-logo.png',
+    rightImg: 'image/jacket/asics/asic-jacket-removebg-preview.png',
     leftText: `
       <div class="product-detail">
         <span class="badge">Outerwear</span>
-        <h2>Saucony Jackets</h2>
+        <h2>Asics</h2>
         <p class="description">Lightweight protection for fast-paced runs.</p>
       </div>
     `,
@@ -340,38 +308,19 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="product-detail">
         <h2>Picks</h2>
         <details class="dropdown">
-          <summary>Jacket 1</summary>
+          <summary>Asics</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+            <li>Road  Winter Jacket</li>
+          
           </ul>
         </details>
-        <details class="dropdown">
-          <summary>Jacket 2</summary>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </details>
-        <details class="dropdown">
-          <summary>Jacket 3</summary>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </details>
+       
       </div>
     `
   },
-  'jackets-brooks': {
-    leftImg: 'image/warm-winter/north/Etip-Recycled-Gloves.avif',
-    rightImg: 'image/warm-winter/north/Etip-Recycled-Gloves.avif',
+ 'jackets-brooks': {
+    leftImg: 'image/logos/brooks-logo-2.webp',
+    rightImg: 'image/jacket/brooks/brooks-jacket-removebg-preview.png',
     leftText: `
       <div class="product-detail">
         <span class="badge">Outerwear</span>
@@ -383,40 +332,22 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="product-detail">
         <h2>Picks</h2>
         <details class="dropdown">
-          <summary>Jacket 1</summary>
+          <summary>Brooks</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </details>
-        <details class="dropdown">
-          <summary>Jacket 2</summary>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </details>
-        <details class="dropdown">
-          <summary>Jacket 3</summary>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+            <li>Run Visible Jacket 2.0</li>
+            <li>Run Visible Insulated Vest 2.0</li>
+            <li>Fusion Hybrid Jacket 2.0</li>
+            <li>Shield Hybrid Jacket 2.0</li>
           </ul>
         </details>
       </div>
     `
-  },
+},
 
   // ========= WARM LAYERS =========
   'warm-thermal': {
-    leftImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
-    rightImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
+    leftImg: 'image/warm-layers/brooks-dash.webp',
+    rightImg: 'image/warm-layers/saucony-truimph-lifestyle-removebg-preview.png',
     leftText: `
       <div class="product-detail">
         <span class="badge">Layers</span>
@@ -426,44 +357,52 @@ document.addEventListener('DOMContentLoaded', () => {
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Picks</h2>
+        <h2>Quarter Zip</h2>
         <details class="dropdown">
-          <summary>Layer 1</summary>
+          <summary>Brooks</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+           <li>Dash 1/2 Zip</li>
+            
+          </ul>
           </ul>
         </details>
         <details class="dropdown">
-          <summary>Layer 2</summary>
+          <summary>North Face</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+               <li>Winter Warm Pro 1/4</li>
+            <li>W CDR TR GRD FLC</li>
+            <li>Yumiori</li>
+            <li>Perf Fleece 1/4 Zip</li>
           </ul>
         </details>
-        <details class="dropdown">
-          <summary>Layer 3</summary>
+         <details class="dropdown">
+          <summary>New Balance </summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+               <li>HT GRD Q ZP</li>
+            <li>SE SD Q ZP</li>
+            <li>Sport Essentials</li>
+            <li>Perf Fleece 1/4 Zip</li>
           </ul>
         </details>
+         <details class="dropdown">
+          <summary>Saucony </summary>
+          <ul>
+            <li>Truimph 3D 1/2 Zip</li>
+          
+            
+          </ul>
+        </details>
+      
       </div>
     `
   },
   'warm-fleece': {
-    leftImg: 'image/socks/no-show-jocology.jpg',
-    rightImg: 'image/socks/no-show-jocology.jpg',
+    leftImg: 'image/warm-layers/tights/heat-high-rise-removebg-preview.png',
+    rightImg: 'image/warm-layers/tights/thermal-pants-removebg-preview.png',
     leftText: `
       <div class="product-detail">
         <span class="badge">Layers</span>
-        <h2>Fleece Mid-Layers</h2>
+        <h2>Tights</h2>
         <p class="description">Soft, breathable warmth for active comfort.</p>
       </div>
     `,
@@ -471,42 +410,32 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="product-detail">
         <h2>Picks</h2>
         <details class="dropdown">
-          <summary>Fleece 1</summary>
+          <summary>New Balance</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+           <li>NB Sleek Legging</li>
+             <li>Athletic Heat Hi</li>
+            
           </ul>
         </details>
         <details class="dropdown">
-          <summary>Fleece 2</summary>
+          <summary>Brooks</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+             <li>Momentum Thermal Jogger</li>
+            <li>Momentum Thermal Tight</li>
+          
           </ul>
         </details>
-        <details class="dropdown">
-          <summary>Fleece 3</summary>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </details>
+        
       </div>
     `
   },
   'warm-ls': {
-    leftImg: 'image/socks/no-show-tab-darn-tough.jpg',
-    rightImg: 'image/socks/no-show-tab-darn-tough.jpg',
+    leftImg: 'image/warm-layers/long-sleeve/luxe-brooks-life-removebg-preview.png',
+    rightImg: 'image/warm-layers/long-sleeve/new-balance-athletic-long-removebg-preview.png',
     leftText: `
       <div class="product-detail">
         <span class="badge">Layers</span>
-        <h2>Long Sleeve Tops</h2>
+        <h2>Long Sleeve Tops </h2>
         <p class="description">Versatile layering for variable conditions.</p>
       </div>
     `,
@@ -514,126 +443,149 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="product-detail">
         <h2>Picks</h2>
         <details class="dropdown">
-          <summary>Top 1</summary>
+          <summary>Brooks</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+            <li>Luxe Long Sleeve</li>
+            <li>Notch Thermal Long Sleeve</li>
+            
+          
+           
+          
           </ul>
         </details>
         <details class="dropdown">
-          <summary>Top 2</summary>
+          <summary>New Balance</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+            <li>Athletic Long </li>
+            
+            
           </ul>
         </details>
-        <details class="dropdown">
-          <summary>Top 3</summary>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </details>
+      
       </div>
     `
   },
 
   // ========= NUTRITION =========
   'nutrition-hydration': {
-    leftImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
-    rightImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
+    leftImg: 'image/nutrition/gu-chews.webp',
+    rightImg: 'image/nutrition/jelly.webp',
     leftText: `
       <div class="product-detail">
         <span class="badge">Fuel</span>
-        <h2>Hydration</h2>
+        <h2>Chews</h2>
         <p class="description">Stay fueled and hydrated on the move.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Picks</h2>
+        <h2>Chews</h2>
         <details class="dropdown">
-          <summary>Option 1</summary>
+          <summary>Gu</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+              <li>Lemon Sublime</li>
+<li>Birthday Cake</li>
+<li>Strawberry Banana</li>
+<li>Rasberry Lemonade</li>
+<li>Expresso Love</li>
+<li>Salted Caramel</li>
+<li>Salted Watermelon</li>
+<li>Chocolate Fudge</li>
+<li>Triberry</li>
+<li>Mandarin Orange</li>
+<li>Jet Blackberry</li>
+<li>Campfire S’mores</li>
+<li>Caramel Macchiato</li>
+<li>Vanilla Bean</li>
+
           </ul>
         </details>
         <details class="dropdown">
-          <summary>Option 2</summary>
+          <summary>Honey Stinger</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+          <li>Fruit Smoothie</li>
+<li>Acai Pomegranate</li>
+<li>Gold</li>
+<li>Strawberry</li>
+<li>Salted Caramel</
           </ul>
         </details>
         <details class="dropdown">
-          <summary>Option 3</summary>
+          <summary>Jelly Belly</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+                     <li>Fruit Punch</li>
+<li>Watermelon</li>
+<li>Asssorted(extreme)</li>
+<li>Assorted</li>
+<li>Lemon Lime</li>
+<li>Orange</li>
+<li>Cherry</li>
+          </ul>
+        </details>
+         <details class="dropdown">
+          <summary>Untapped</summary>
+          <ul>
+            <li>Grape Mapleaid</li>
+<li>Lemon Tea</li>
+<li>ginger</li>
+<li>Lime</li>
+<li>Mapleaid</li>
+<li>Salted Rasberry</li>
+<li>Salted Ccoa</li>
+<li>Bourbon Barrel Aged</li>
+<li>Salted Citrus</li>
           </ul>
         </details>
       </div>
     `
   },
   'nutrition-bars': {
-    leftImg: 'image/socks/no-show-jocology.jpg',
-    rightImg: 'image/socks/no-show-jocology.jpg',
+    leftImg: 'image/logos/gu-logo.png',
+    rightImg: 'image/nutrition/untapped-gel.webp',
     leftText: `
       <div class="product-detail">
-        <span class="badge">Fuel</span>
-        <h2>Energy Bars</h2>
+        <span class="badge">Chews</span>
+        <h2>Gels</h2>
         <p class="description">Convenient nutrition for training and racing.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Picks</h2>
+        <h2>Gels</h2>
         <details class="dropdown">
-          <summary>Bar 1</summary>
+          <summary>Gu</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+             <li>Rainbow Fruit Mix</li>
+<li>Lemonade</li>
+<li>Blue Pomegranate</li>
+<li>Strawberry</li>
+<li>Orange</li>
+<li>Watermelon</li>
+<li>Salted Lime</li>
+          <li>Fruit Punch</li>
+
           </ul>
         </details>
+    
         <details class="dropdown">
-          <summary>Bar 2</summary>
+          <summary>Honey Stinger</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+         <li>Pink Lemonade</li>
+<li>Pomegranate Passion Fruit</li>
+<li>Citrus Splash</li>
+<li>Cherry Cola</li>
+<li>OrangeBlossom</li>
+<li>Fruit Punch</li>
+<li>Stingerita Lime</li>
           </ul>
         </details>
-        <details class="dropdown">
-          <summary>Bar 3</summary>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </details>
+        
       </div>
     `
   },
   'nutrition-recovery': {
-    leftImg: 'image/socks/no-show-tab-darn-tough.jpg',
-    rightImg: 'image/socks/no-show-tab-darn-tough.jpg',
+    leftImg: 'image/nutrition/maurten.webp',
+    rightImg: 'image/nutrition/nuun.webp',
     leftText: `
       <div class="product-detail">
         <span class="badge">Fuel</span>
@@ -645,30 +597,71 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="product-detail">
         <h2>Picks</h2>
         <details class="dropdown">
-          <summary>Recovery 1</summary>
+          <summary>Nuun</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+             <li>Citrus Fruit</li>
+<li>Orange</li>
+<li>Tropical</li>
+<li>Watermelon</li>
+<li>Tri-berry</li>
+<li>Grape</li>
+<li>Mango Orange</li>
+<li>Fresh Lime</li>
+<li>Wild Berry</li>
+<li>Cherry Limeade</li>
+<li>Watermelon Burst</li>
+<li>Tropical Punch</li>
+<li>Fresh Lime</li>
+<li>Berry Blast</li>
+<li>Tangerine Lime</li>
+<li>Strawberry Lime</li>
+<li>Blueberry Pomegranete</li>
+<li>Blue Tangerine</li>
+<li>OrangeCitrus</li>
           </ul>
         </details>
         <details class="dropdown">
-          <summary>Recovery 2</summary>
+          <summary>Tail Wind</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+         <li>Tropical</li>
+<li>Mandarin</li>
+<li>Dauwaltermelon</li>
+<li>Berry</li>
+<li>Lemon</li>
+<li>Raspberry</li>
           </ul>
         </details>
         <details class="dropdown">
-          <summary>Recovery 3</summary>
+          <summary>Maurtin</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+                   <li>Marten gel 100</li>
+<li>Drink mix 160</li>
+<li>Drink mix 320 can 320</li>
+
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary>Hoist</summary>
+          <ul>
+           <li>Citrus Fruit</li>
+<li>Orange</li>
+<li>Tropical</li>
+<li>Watermelon</li>
+<li>Tri-berry</li>
+<li>Grape</li>
+<li>Mango Orange</li>
+<li>Fresh Lime</li>
+<li>Wild Berry</li>
+<li>Cherry Limeade</li>
+<li>Watermelon Burst</li>
+<li>Tropical Punch</li>
+<li>Fresh Lime</li>
+<li>Berry Blast</li>
+<li>Tangerine Lime</li>
+<li>Strawberry Lime</li>
+<li>Blueberry Pomegranete</li>
+<li>Blue Tangerine</li>
+<li>OrangeCitrus</li>
           </ul>
         </details>
       </div>
@@ -677,8 +670,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ========= ELECTRONICS =========
   'elec-headphones': {
-    leftImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
-    rightImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
+    leftImg: 'image/logos/shokz-logo.png',
+    rightImg: 'image/electronics/shokz-openswim.webp',
     leftText: `
       <div class="product-detail">
         <span class="badge">Tech</span>
@@ -703,8 +696,8 @@ document.addEventListener('DOMContentLoaded', () => {
     `
   },
   'elec-lights': {
-    leftImg: 'image/socks/no-show-jocology.jpg',
-    rightImg: 'image/socks/no-show-jocology.jpg',
+    leftImg: 'image/logos/garmin-logo.png',
+    rightImg: 'image/electronics/forerunner.webp',
     leftText: `
       <div class="product-detail">
         <span class="badge">Tech</span>
@@ -729,12 +722,12 @@ document.addEventListener('DOMContentLoaded', () => {
     `
   },
   'elec-watches': {
-    leftImg: 'image/socks/no-show-tab-darn-tough.jpg',
-    rightImg: 'image/socks/no-show-tab-darn-tough.jpg',
+    leftImg: 'image/logos/thera-logo.png',
+    rightImg: 'image/electronics/theragun-prim.webp',
     leftText: `
       <div class="product-detail">
         <span class="badge">Tech</span>
-        <h2>GPS Watches</h2>
+        <h2>Massage Guns</h2>
         <p class="description">Track your performance with precision.</p>
       </div>
     `,
@@ -756,12 +749,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ========= LULULEMON =========
   'lulu-bottoms': {
-    leftImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
-    rightImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
+    leftImg: 'image/lululemon/METAL-VENT-lulu-removebg-preview.png',
+    rightImg: 'image/lululemon/Pace-Breaker-Ripstop-Jacket-lulu-removebg-preview.png',
     leftText: `
       <div class="product-detail">
         <span class="badge">Apparel</span>
-        <h2>Bottoms</h2>
+        <h2>Jackets</h2>
         <p class="description">High-performance tights and shorts.</p>
       </div>
     `,
@@ -769,42 +762,24 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="product-detail">
         <h2>Picks</h2>
         <details class="dropdown">
-          <summary>Bottom 1</summary>
+          <summary>Jacket</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+            <li>Pace Breaker Ripstop</li>
+            <li>Metal Vent Tech Half Zip</li>
+            
           </ul>
         </details>
-        <details class="dropdown">
-          <summary>Bottom 2</summary>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </details>
-        <details class="dropdown">
-          <summary>Bottom 3</summary>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </details>
+       
       </div>
     `
   },
   'lulu-accessories': {
-    leftImg: 'image/socks/no-show-jocology.jpg',
-    rightImg: 'image/socks/no-show-jocology.jpg',
+    leftImg: 'image/lululemon/It_s-rulu-cropped-half-removebg-preview.png',
+    rightImg: 'image/lululemon/to_train-lulu-removebg-preview.png',
     leftText: `
       <div class="product-detail">
         <span class="badge">Apparel</span>
-        <h2>Accessories</h2>
+        <h2>Warm Layers</h2>
         <p class="description">Essential add-ons for every workout.</p>
       </div>
     `,
@@ -812,87 +787,52 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="product-detail">
         <h2>Picks</h2>
         <details class="dropdown">
-          <summary>Accessory 1</summary>
+          <summary>Warm Layers</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+            <li>Adapted State Textured Jacket</li>
+            <li>It's Rulu Run Ribbed Cropped Half Zip</li>
+            <li>Its's Rulu Half Zip</li>
+            <li>License to Train Hoodie</li>
           </ul>
         </details>
-        <details class="dropdown">
-          <summary>Accessory 2</summary>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </details>
-        <details class="dropdown">
-          <summary>Accessory 3</summary>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </details>
+        
       </div>
     `
   },
   'lulu-outerwear': {
-    leftImg: 'image/socks/no-show-tab-darn-tough.jpg',
-    rightImg: 'image/socks/no-show-tab-darn-tough.jpg',
+    leftImg: 'image/lululemon/fast_and_free-removebg-preview.png',
+    rightImg: 'image/lululemon/high-rise-removebg-preview.png',
     leftText: `
       <div class="product-detail">
         <span class="badge">Apparel</span>
-        <h2>Outerwear</h2>
+        <h2>Pants</h2>
         <p class="description">Weather-ready layers for urban miles.</p>
       </div>
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Picks</h2>
+        <h2>Pants</h2>
         <details class="dropdown">
-          <summary>Outerwear 1</summary>
+          <summary>Pants</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+            <li>Fast and Free HR Tight 25 *Pockets</li>
+            <li>Wunder Train HR Tight 25 *Pockets</li>
+            <li>Pace Breaker Luxtreme Track Pant *Reg</li>
           </ul>
         </details>
-        <details class="dropdown">
-          <summary>Outerwear 2</summary>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </details>
-        <details class="dropdown">
-          <summary>Outerwear 3</summary>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </details>
+        
       </div>
     `
   },
 
   // ========= RABBIT =========
   'rabbit-tops': {
-    leftImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
-    rightImg: 'image/socks/micro-crew-ultra-lightweight-darn tough.jpg',
+    leftImg: 'image/rabbit/cocoon-removebg-preview.png',
+    rightImg: 'image/rabbit/warm_up-rabbit-removebg-preview.png',
     leftText: `
       <div class="product-detail">
         <span class="badge">Rabbit</span>
-        <h2>Tops</h2>
+        <h2>Jackets</h2>
         <p class="description">Feathery soft, runner-made essentials.</p>
       </div>
     `,
@@ -900,38 +840,21 @@ document.addEventListener('DOMContentLoaded', () => {
        <div class="product-detail">
         <h2>Picks</h2>
         <details class="dropdown">
-          <summary>Top 1</summary>
+          <summary>Jacket</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+            <li>Evening Promrose</li>
+            <li>Low Light Momentum Jacket</li>
+            <li>Warm Up N'Go</li>
+            <li>Cocoon 2.0</li>
           </ul>
         </details>
-        <details class="dropdown">
-          <summary>Top 2</summary>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </details>
-        <details class="dropdown">
-          <summary>Top 3</summary>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </details>
+       
       </div>
     `
   },
   'rabbit-gear': {
-    leftImg: 'image/socks/no-show-jocology.jpg',
-    rightImg: 'image/socks/no-show-jocology.jpg',
+    leftImg: 'image/rabbit/layer-one-removebg-preview.png',
+    rightImg: 'image/rabbit/defroster-removebg-preview.png',
     leftText: `
       <div class="product-detail">
         <span class="badge">Rabbit</span>
@@ -941,44 +864,27 @@ document.addEventListener('DOMContentLoaded', () => {
     `,
     rightText: `
       <div class="product-detail">
-        <h2>Picks</h2>
+        <h2>Warm Layers</h2>
         <details class="dropdown">
           <summary>Gear 1</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+            <li>Layer One Zip</li>
+            <strong><underline>Pants</underline></strong>
+            <li>DeFroster Speed Tights</li>
+           
           </ul>
         </details>
-        <details class="dropdown">
-          <summary>Gear 2</summary>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </details>
-        <details class="dropdown">
-          <summary>Gear 3</summary>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </details>
+        
       </div>
     `
   },
   'rabbit-accessories': {
-    leftImg: 'image/socks/no-show-tab-darn-tough.jpg',
-    rightImg: 'image/socks/no-show-tab-darn-tough.jpg',
+    leftImg: 'image/rabbit/layer-one-blue-removebg-preview.png',
+    rightImg: 'image/rabbit/layer-one-pink-removebg-preview.png',
     leftText: `
       <div class="product-detail">
         <span class="badge">Rabbit</span>
-        <h2>Accessories</h2>
+        <h2>Long Sleeve</h2>
         <p class="description">Everyday run add-ons that work hard.</p>
       </div>
     `,
@@ -986,32 +892,13 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="product-detail">
         <h2>Picks</h2>
         <details class="dropdown">
-          <summary>Accessory 1</summary>
+          <summary>Long Sleeve</summary>
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+            <li>Layer One</li>
+           
           </ul>
         </details>
-        <details class="dropdown">
-          <summary>Accessory 2</summary>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </details>
-        <details class="dropdown">
-          <summary>Accessory 3</summary>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
-        </details>
+    
       </div>
     `
   },
