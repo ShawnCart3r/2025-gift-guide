@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   'socks-darntough': {
     leftImg: 'image/logos/darn-tough-2.jpg',
-    rightImg: 'image/socks/balega-hidden-comfort.jpg',
+    rightImg: 'image/socks/No_Show_Tab_Ultra-LightWeight-removebg-preview.png',
     leftText: `
      <div class="product-detail">
         <span class="badge">Premium</span>
@@ -74,22 +74,22 @@ document.addEventListener('DOMContentLoaded', () => {
     leftImg: 'image/logos/jogology-logo.webp',
     rightImg: 'image/socks/no-show-jocology.jpg',
     leftText: `
-     <div class="product-detail">
-        <span class="badge">Premium</span>
-        <h2>Jocology Socks</h2>
-        <div class="features">
-          <span class="feature-tag">🍃 Ultra Lightweight</span>
-          <span class="feature-tag">🇺🇸 Made in Vermont</span>
-          <span class="feature-tag">♾️ Lifetime Guarantee</span>
-        </div>
-        <p class="description">Fine-gauge Merino wool socks. Perfect for any season, any activity.</p>
-      </div>
+    <div class="product-detail">
+  <span class="badge">Performance</span>
+  <h2>Jogology Socks</h2>
+  <div class="features">
+    <span class="feature-tag">♻️ Sustainable Re-Dri™ Yarn</span>
+    <span class="feature-tag">🏃 Made by Runners</span>
+    <span class="feature-tag">🧵 Seamless Design</span>
+  </div>
+  <p class="description">Performance running socks with recycled moisture-wicking yarn. Seamless construction prevents blisters.</p>
+</div>
     `,
     rightText: `
       <div class="product-detail">
         <h2>Picks</h2>
         <details class="dropdown">
-          <summary>Jocology</summary>
+          <summary>Jogology</summary>
           <ul>
                    <li>No Show Ultra Light</li>
             <li>Crew</li>
@@ -105,15 +105,15 @@ document.addEventListener('DOMContentLoaded', () => {
     rightImg: 'image/socks/balega-hidden-comfort.jpg',
     leftText: `
     <div class="product-detail">
-        <span class="badge">Premium</span>
-        <h2>Balega</h2>
-        <div class="features">
-          <span class="feature-tag">🍃 Ultra Lightweight</span>
-          <span class="feature-tag">🇺🇸 Made in Vermont</span>
-          <span class="feature-tag">♾️ Lifetime Guarantee</span>
-        </div>
-        <p class="description">Fine-gauge Merino wool socks. Perfect for any season, any activity.</p>
-      </div>
+  <span class="badge">Performance</span>
+  <h2>Balega</h2>
+  <div class="features">
+    <span class="feature-tag">🇺🇸 Drynamix™ Moisture Management</span>
+    <span class="feature-tag">🇿🇦 Made in South Africa & USA</span>
+    <span class="feature-tag">✋ Hand Inspected</span>
+  </div>
+  <p class="description">Running socks with plush cushioning and seamless construction. Deep heel pocket prevents slippage.</p>
+</div>
     `,
     rightText: `
        <div class="product-detail">
@@ -134,19 +134,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ========= COLD WEATHER =========
   'head-bands': {
-    leftImg: 'image/warm-winter/cep/cep-cold-headband.webp',
-    rightImg: 'image/socks/micro-crew-ultra-lightweight-darn%20tough.jpg',
+    leftImg: 'image/cold/Base-Headband-north-removebg-preview.png',
+    rightImg: 'image/cold/Luxe_Thermal_Headband-removebg-preview.png',
     leftText: `
-      <div class="product-detail">
-        <span class="badge">Winter</span>
-        <h2>Thermal Headbands</h2>
-        <div class="features">
-          <span class="feature-tag">❄️ Warm</span>
-          <span class="feature-tag">🧵 Soft Interior</span>
-          <span class="feature-tag">🏃‍♂️ No-Slip Fit</span>
-        </div>
-        <p class="description">Keep your ears warm without overheating — perfect for cold runs and brisk mornings.</p>
-      </div>
+     <div class="product-detail">
+  <span class="badge">Winter</span>
+  <h2>Thermal Headbands</h2>
+  <div class="features">
+    <span class="feature-tag">❄️ Windproof Exterior</span>
+    <span class="feature-tag">🧵 Fleece-Lined Interior</span>
+    <span class="feature-tag">🏃‍♂️ 4-Way Stretch Fit</span>
+  </div>
+  <p class="description">Keep your ears warm without overheating — perfect for cold runs and brisk mornings.</p>
+</div>
     `,
     rightText: `
       <div class="product-detail">
@@ -166,24 +166,32 @@ document.addEventListener('DOMContentLoaded', () => {
             
           </ul>
         </details>
+          <details class="dropdown">
+          <summary>CEP</summary>
+          <ul>
+            <li>CEP Cold Weather Headband</li>
+               
+            
+          </ul>
+        </details>
       
       </div>
     `
   },
  'beanies': {
-    leftImg: 'image/warm-winter/brooks/brooks-beanie.webp',
-    rightImg: 'image/warm-winter/brooks/brooks-beanie.webp',
+    leftImg: 'image/cold/Base-Beanie-removebg-preview.png',
+    rightImg: 'image/cold/Womens-Oh-Mega-Fur-Pom-Lined-Beanie.jpg',
     leftText: `
-      <div class="product-detail">
-        <span class="badge">Winter</span>
-        <h2>Running Beanies</h2>
-        <div class="features">
-          <span class="feature-tag">🧣 Cozy</span>
-          <span class="feature-tag">🫧 Breathable</span>
-          <span class="feature-tag">🌫️ Wind-Resistant</span>
-        </div>
-        <p class="description">Lightweight, moisture-wicking warmth without bulk.</p>
-      </div>
+     <div class="product-detail">
+  <span class="badge">Winter</span>
+  <h2>Running Beanies</h2>
+  <div class="features">
+    <span class="feature-tag">🧣 Cozy</span>
+    <span class="feature-tag">🫧 Breathable</span>
+    <span class="feature-tag">🌫️ Wind-Resistant</span>
+  </div>
+  <p class="description">Lightweight, moisture-wicking warmth without bulk.</p>
+</div>
     `,
     rightText: `
       <div class="product-detail">
@@ -225,19 +233,19 @@ document.addEventListener('DOMContentLoaded', () => {
     `
 },
  'gloves': {
-    leftImg: 'image/warm-winter/north/Etip-Recycled-Gloves.avif',
-    rightImg: 'image/warm-winter/north/Etip-Recycled-Gloves.avif',
+    leftImg: 'image/cold/Core-Run-Thermal-Gloves_Black_W5V25D_4x5_Transparent_01-removebg-preview.png',
+    rightImg: 'image/cold/Fusion_Midweight_Glove_2.0-removebg-preview.png',
     leftText: `
-      <div class="product-detail">
-        <span class="badge">Winter</span>
-        <h2>Running Gloves</h2>
-        <div class="features">
-          <span class="feature-tag">📱 Touchscreen</span>
-          <span class="feature-tag">💨 Wind Resistant</span>
-          <span class="feature-tag">🧤 Thermal Lining</span>
-        </div>
-        <p class="description">Stay warm and connected on cold miles.</p>
-      </div>
+    <div class="product-detail">
+  <span class="badge">Winter</span>
+  <h2>Running Gloves</h2>
+  <div class="features">
+    <span class="feature-tag">📱 Touchscreen</span>
+    <span class="feature-tag">💨 Wind Resistant</span>
+    <span class="feature-tag">🧤 Thermal Lining</span>
+  </div>
+  <p class="description">Stay warm and connected on cold miles.</p>
+</div>
     `,
     rightText: `
       <div class="product-detail">
@@ -272,11 +280,16 @@ document.addEventListener('DOMContentLoaded', () => {
     leftImg: 'image/jacket/northface/northface-summit-removebg-preview.png',
     rightImg: 'image/jacket/northface/lifestyle-northface-removebg-preview.png',
     leftText: `
-      <div class="product-detail">
-        <span class="badge">Outerwear</span>
-        <h2>Northface</h2>
-        <p class="description">Weather-resistant performance for all conditions.</p>
-      </div>
+     <div class="product-detail">
+  <span class="badge">Outerwear</span>
+  <h2>The North Face</h2>
+  <div class="features">
+    <span class="feature-tag">💧 FUTURELIGHT™ Waterproof</span>
+    <span class="feature-tag">🌬️ Breathable & Windproof</span>
+    <span class="feature-tag">🏔️ Athlete-Tested</span>
+  </div>
+  <p class="description">Advanced breathable-waterproof technology for all-weather performance.</p>
+</div>
     `,
     rightText: `
       <div class="product-detail">
@@ -298,11 +311,16 @@ document.addEventListener('DOMContentLoaded', () => {
     leftImg: 'image/logos/asics-logo.png',
     rightImg: 'image/jacket/asics/asic-jacket-removebg-preview.png',
     leftText: `
-      <div class="product-detail">
-        <span class="badge">Outerwear</span>
-        <h2>Asics</h2>
-        <p class="description">Lightweight protection for fast-paced runs.</p>
-      </div>
+     <div class="product-detail">
+  <span class="badge">Outerwear</span>
+  <h2>Asics</h2>
+  <div class="features">
+    <span class="feature-tag">💨 Laser-Cut Ventilation</span>
+    <span class="feature-tag">📦 Packable Design</span>
+    <span class="feature-tag">🔆 Reflective Details</span>
+  </div>
+  <p class="description">Lightweight protection for fast-paced runs.</p>
+</div>
     `,
     rightText: `
       <div class="product-detail">
@@ -322,11 +340,16 @@ document.addEventListener('DOMContentLoaded', () => {
     leftImg: 'image/logos/brooks-logo-2.webp',
     rightImg: 'image/jacket/brooks/brooks-jacket-removebg-preview.png',
     leftText: `
-      <div class="product-detail">
-        <span class="badge">Outerwear</span>
-        <h2>Brooks Jackets</h2>
-        <p class="description">Reliable weather protection for serious runners.</p>
-      </div>
+     <div class="product-detail">
+  <span class="badge">Outerwear</span>
+  <h2>Brooks Jackets</h2>
+  <div class="features">
+    <span class="feature-tag">💧 DriLayer® Seal</span>
+    <span class="feature-tag">📦 Packable & Lightweight</span>
+    <span class="feature-tag">🔆 3M™ Scotchlite™</span>
+  </div>
+  <p class="description">Reliable weather protection for serious runners.</p>
+</div>
     `,
     rightText: `
       <div class="product-detail">
@@ -346,14 +369,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ========= WARM LAYERS =========
   'warm-thermal': {
-    leftImg: 'image/warm-layers/brooks-dash.webp',
+    leftImg: 'image/warm-layers/long-sleeve/Sport_Essentials-removebg-preview.png',
     rightImg: 'image/warm-layers/saucony-truimph-lifestyle-removebg-preview.png',
     leftText: `
       <div class="product-detail">
-        <span class="badge">Layers</span>
-        <h2>Thermal Base Layers</h2>
-        <p class="description">Insulating warmth for cold weather training.</p>
-      </div>
+  <span class="badge">Layers</span>
+  <h2>Thermal Base Layers</h2>
+  <div class="features">
+    <span class="feature-tag">💧 Moisture-Wicking</span>
+    <span class="feature-tag">🔥 Temperature Regulation</span>
+    <span class="feature-tag">🧵 Flatlock Seams</span>
+  </div>
+  <p class="description">Insulating warmth for cold weather training.</p>
+</div>
     `,
     rightText: `
       <div class="product-detail">
@@ -400,11 +428,16 @@ document.addEventListener('DOMContentLoaded', () => {
     leftImg: 'image/warm-layers/tights/heat-high-rise-removebg-preview.png',
     rightImg: 'image/warm-layers/tights/thermal-pants-removebg-preview.png',
     leftText: `
-      <div class="product-detail">
-        <span class="badge">Layers</span>
-        <h2>Tights</h2>
-        <p class="description">Soft, breathable warmth for active comfort.</p>
-      </div>
+   <div class="product-detail">
+  <span class="badge">Layers</span>
+  <h2>Tights</h2>
+  <div class="features">
+    <span class="feature-tag">🔥 Thermal Insulation</span>
+    <span class="feature-tag">💪 Light Compression</span>
+    <span class="feature-tag">🧵 Flatlock Seams</span>
+  </div>
+  <p class="description">Soft, breathable warmth for active comfort.</p>
+</div>
     `,
     rightText: `
       <div class="product-detail">
@@ -433,11 +466,16 @@ document.addEventListener('DOMContentLoaded', () => {
     leftImg: 'image/warm-layers/long-sleeve/luxe-brooks-life-removebg-preview.png',
     rightImg: 'image/warm-layers/long-sleeve/new-balance-athletic-long-removebg-preview.png',
     leftText: `
-      <div class="product-detail">
-        <span class="badge">Layers</span>
-        <h2>Long Sleeve Tops </h2>
-        <p class="description">Versatile layering for variable conditions.</p>
-      </div>
+     <div class="product-detail">
+  <span class="badge">Layers</span>
+  <h2>Long Sleeve Tops</h2>
+  <div class="features">
+    <span class="feature-tag">💧 Moisture-Wicking</span>
+    <span class="feature-tag">🌡️ Temperature Regulation</span>
+    <span class="feature-tag">👍 Thumbholes</span>
+  </div>
+  <p class="description">Versatile layering for variable conditions.</p>
+</div>
     `,
     rightText: `
       <div class="product-detail">
@@ -471,11 +509,16 @@ document.addEventListener('DOMContentLoaded', () => {
     leftImg: 'image/nutrition/gu-chews.webp',
     rightImg: 'image/nutrition/jelly.webp',
     leftText: `
-      <div class="product-detail">
-        <span class="badge">Fuel</span>
-        <h2>Chews</h2>
-        <p class="description">Stay fueled and hydrated on the move.</p>
-      </div>
+     <div class="product-detail">
+  <span class="badge">Fuel</span>
+  <h2>Chews</h2>
+  <div class="features">
+    <span class="feature-tag">⚡ Fast-Acting Carbs</span>
+    <span class="feature-tag">💧 Electrolytes</span>
+    <span class="feature-tag">📦 Portable & Mess-Free</span>
+  </div>
+  <p class="description">Quick energy and hydration on the move.</p>
+</div>
     `,
     rightText: `
       <div class="product-detail">
@@ -483,20 +526,14 @@ document.addEventListener('DOMContentLoaded', () => {
         <details class="dropdown">
           <summary>Gu</summary>
           <ul>
-              <li>Lemon Sublime</li>
-<li>Birthday Cake</li>
-<li>Strawberry Banana</li>
-<li>Rasberry Lemonade</li>
-<li>Expresso Love</li>
-<li>Salted Caramel</li>
-<li>Salted Watermelon</li>
-<li>Chocolate Fudge</li>
-<li>Triberry</li>
-<li>Mandarin Orange</li>
-<li>Jet Blackberry</li>
-<li>Campfire S’mores</li>
-<li>Caramel Macchiato</li>
-<li>Vanilla Bean</li>
+<li>Rainbow Fruit Mix</li>
+<li>Lemonade</li>
+<li>Blue Pomegranate</li>
+<li>Strawberry</li>
+<li>Orange</li>
+<li>Watermelon</li>
+<li>Salted Lime</li>
+          <li>Fruit Punch</li>
 
           </ul>
         </details>
@@ -522,20 +559,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <li>Cherry</li>
           </ul>
         </details>
-         <details class="dropdown">
-          <summary>Untapped</summary>
-          <ul>
-            <li>Grape Mapleaid</li>
-<li>Lemon Tea</li>
-<li>ginger</li>
-<li>Lime</li>
-<li>Mapleaid</li>
-<li>Salted Rasberry</li>
-<li>Salted Ccoa</li>
-<li>Bourbon Barrel Aged</li>
-<li>Salted Citrus</li>
-          </ul>
-        </details>
+         
       </div>
     `
   },
@@ -544,10 +568,15 @@ document.addEventListener('DOMContentLoaded', () => {
     rightImg: 'image/nutrition/untapped-gel.webp',
     leftText: `
       <div class="product-detail">
-        <span class="badge">Chews</span>
-        <h2>Gels</h2>
-        <p class="description">Convenient nutrition for training and racing.</p>
-      </div>
+  <span class="badge">Fuel</span>
+  <h2>Gels</h2>
+  <div class="features">
+    <span class="feature-tag">⚡ Fast-Absorbing Carbs</span>
+    <span class="feature-tag">📦 Portable Sachets</span>
+    <span class="feature-tag">💧 Easy to Digest</span>
+  </div>
+  <p class="description">Concentrated energy for training and racing.</p>
+</div>
     `,
     rightText: `
       <div class="product-detail">
@@ -555,14 +584,20 @@ document.addEventListener('DOMContentLoaded', () => {
         <details class="dropdown">
           <summary>Gu</summary>
           <ul>
-             <li>Rainbow Fruit Mix</li>
-<li>Lemonade</li>
-<li>Blue Pomegranate</li>
-<li>Strawberry</li>
-<li>Orange</li>
-<li>Watermelon</li>
-<li>Salted Lime</li>
-          <li>Fruit Punch</li>
+             <li>Lemon Sublime</li>
+<li>Birthday Cake</li>
+<li>Strawberry Banana</li>
+<li>Rasberry Lemonade</li>
+<li>Expresso Love</li>
+<li>Salted Caramel</li>
+<li>Salted Watermelon</li>
+<li>Chocolate Fudge</li>
+<li>Triberry</li>
+<li>Mandarin Orange</li>
+<li>Jet Blackberry</li>
+<li>Campfire S’mores</li>
+<li>Caramel Macchiato</li>
+<li>Vanilla Bean</li>
 
           </ul>
         </details>
@@ -579,6 +614,20 @@ document.addEventListener('DOMContentLoaded', () => {
 <li>Stingerita Lime</li>
           </ul>
         </details>
+        <details class="dropdown">
+          <summary>Untapped</summary>
+          <ul>
+            <li>Grape Mapleaid</li>
+<li>Lemon Tea</li>
+<li>ginger</li>
+<li>Lime</li>
+<li>Mapleaid</li>
+<li>Salted Rasberry</li>
+<li>Salted Ccoa</li>
+<li>Bourbon Barrel Aged</li>
+<li>Salted Citrus</li>
+          </ul>
+        </details>
         
       </div>
     `
@@ -587,11 +636,16 @@ document.addEventListener('DOMContentLoaded', () => {
     leftImg: 'image/nutrition/maurten.webp',
     rightImg: 'image/nutrition/nuun.webp',
     leftText: `
-      <div class="product-detail">
-        <span class="badge">Fuel</span>
-        <h2>Recovery Nutrition</h2>
-        <p class="description">Post-run fuel for optimal recovery.</p>
-      </div>
+     <div class="product-detail">
+  <span class="badge">Fuel</span>
+  <h2>Recovery Nutrition</h2>
+  <div class="features">
+    <span class="feature-tag">🥤 Carb-Protein Ratio 3:1</span>
+    <span class="feature-tag">💪 Muscle Repair</span>
+    <span class="feature-tag">⏱️ 30-Minute Window</span>
+  </div>
+  <p class="description">Post-run fuel for optimal recovery.</p>
+</div
     `,
     rightText: `
       <div class="product-detail">
@@ -673,11 +727,16 @@ document.addEventListener('DOMContentLoaded', () => {
     leftImg: 'image/logos/shokz-logo.png',
     rightImg: 'image/electronics/shokz-openswim.webp',
     leftText: `
-      <div class="product-detail">
-        <span class="badge">Tech</span>
-        <h2>Headphones</h2>
-        <p class="description">Wireless audio for distraction-free miles.</p>
-      </div>
+     <div class="product-detail">
+  <span class="badge">Tech</span>
+  <h2>Headphones</h2>
+  <div class="features">
+    <span class="feature-tag">💧 IPX4-IPX7 Sweat-Resistant</span>
+    <span class="feature-tag">🔋 Long Battery Life</span>
+    <span class="feature-tag">🎧 Secure Fit</span>
+  </div>
+  <p class="description">Wireless audio for distraction-free miles.</p>
+</div>
     `,
     rightText: `
       <div class="product-detail">
@@ -699,11 +758,16 @@ document.addEventListener('DOMContentLoaded', () => {
     leftImg: 'image/logos/garmin-logo.png',
     rightImg: 'image/electronics/forerunner.webp',
     leftText: `
-      <div class="product-detail">
-        <span class="badge">Tech</span>
-        <h2>Running Lights</h2>
-        <p class="description">Stay visible during early morning or evening runs.</p>
-      </div>
+     <div class="product-detail">
+  <span class="badge">Tech</span>
+  <h2>Garmin Watches</h2>
+  <div class="features">
+    <span class="feature-tag">📊 Advanced Metrics</span>
+    <span class="feature-tag">🗺️ GPS Tracking</span>
+    <span class="feature-tag">🔋 Multi-Day Battery</span>
+  </div>
+  <p class="description">Precision training and performance tracking.</p>
+</div>
     `,
     rightText: `
       <div class="product-detail">
@@ -725,11 +789,16 @@ document.addEventListener('DOMContentLoaded', () => {
     leftImg: 'image/logos/thera-logo.png',
     rightImg: 'image/electronics/theragun-prim.webp',
     leftText: `
-      <div class="product-detail">
-        <span class="badge">Tech</span>
-        <h2>Massage Guns</h2>
-        <p class="description">Track your performance with precision.</p>
-      </div>
+    <div class="product-detail">
+  <span class="badge">Tech</span>
+  <h2>Massage Guns</h2>
+  <div class="features">
+    <span class="feature-tag">💪 Deep Tissue Relief</span>
+    <span class="feature-tag">🔇 Quiet Operation</span>
+    <span class="feature-tag">⚡ Multiple Speed Settings</span>
+  </div>
+  <p class="description">Targeted muscle recovery and tension relief.</p>
+</div>
     `,
     rightText: `
       <div class="product-detail">
@@ -752,11 +821,16 @@ document.addEventListener('DOMContentLoaded', () => {
     leftImg: 'image/lululemon/METAL-VENT-lulu-removebg-preview.png',
     rightImg: 'image/lululemon/Pace-Breaker-Ripstop-Jacket-lulu-removebg-preview.png',
     leftText: `
-      <div class="product-detail">
-        <span class="badge">Apparel</span>
-        <h2>Jackets</h2>
-        <p class="description">High-performance tights and shorts.</p>
-      </div>
+    <div class="product-detail">
+  <span class="badge">Apparel</span>
+  <h2>Lululemon Jackets</h2>
+  <div class="features">
+    <span class="feature-tag">🌧️ Weather Resistant</span>
+    <span class="feature-tag">🏃 4-Way Stretch</span>
+    <span class="feature-tag">💨 Breathable Fabric</span>
+  </div>
+  <p class="description">Premium athletic jackets for running and training.</p>
+</div>
     `,
     rightText: `
       <div class="product-detail">
@@ -778,10 +852,15 @@ document.addEventListener('DOMContentLoaded', () => {
     rightImg: 'image/lululemon/to_train-lulu-removebg-preview.png',
     leftText: `
       <div class="product-detail">
-        <span class="badge">Apparel</span>
-        <h2>Warm Layers</h2>
-        <p class="description">Essential add-ons for every workout.</p>
-      </div>
+  <span class="badge">Apparel</span>
+  <h2>Warm Layers</h2>
+  <div class="features">
+    <span class="feature-tag">🔥 Thermal Insulation</span>
+    <span class="feature-tag">💧 Moisture-Wicking</span>
+    <span class="feature-tag">🎯 Lightweight Warmth</span>
+  </div>
+  <p class="description">Essential base layers and mid-layers for cold weather training.</p>
+</div>
     `,
     rightText: `
       <div class="product-detail">
@@ -803,11 +882,16 @@ document.addEventListener('DOMContentLoaded', () => {
     leftImg: 'image/lululemon/fast_and_free-removebg-preview.png',
     rightImg: 'image/lululemon/high-rise-removebg-preview.png',
     leftText: `
-      <div class="product-detail">
-        <span class="badge">Apparel</span>
-        <h2>Pants</h2>
-        <p class="description">Weather-ready layers for urban miles.</p>
-      </div>
+     <div class="product-detail">
+  <span class="badge">Apparel</span>
+  <h2>Pants</h2>
+  <div class="features">
+    <span class="feature-tag">🏃 Flexible Fit</span>
+    <span class="feature-tag">💨 Breathable Fabric</span>
+    <span class="feature-tag">📏 Tapered Design</span>
+  </div>
+  <p class="description">Comfortable running and training pants for all conditions.</p>
+</div>
     `,
     rightText: `
       <div class="product-detail">
@@ -831,10 +915,15 @@ document.addEventListener('DOMContentLoaded', () => {
     rightImg: 'image/rabbit/warm_up-rabbit-removebg-preview.png',
     leftText: `
       <div class="product-detail">
-        <span class="badge">Rabbit</span>
-        <h2>Jackets</h2>
-        <p class="description">Feathery soft, runner-made essentials.</p>
-      </div>
+  <span class="badge">Rabbit</span>
+  <h2>Rabbit Jackets</h2>
+  <div class="features">
+    <span class="feature-tag">🪶 Ultralight Construction</span>
+    <span class="feature-tag">🌬️ Wind Resistant</span>
+    <span class="feature-tag">🏃 Runner-Designed Fit</span>
+  </div>
+  <p class="description">Feathery soft, technical jackets made by runners for runners.</p>
+</div>
     `,
     rightText: `
        <div class="product-detail">
@@ -856,11 +945,16 @@ document.addEventListener('DOMContentLoaded', () => {
     leftImg: 'image/rabbit/layer-one-removebg-preview.png',
     rightImg: 'image/rabbit/defroster-removebg-preview.png',
     leftText: `
-      <div class="product-detail">
-        <span class="badge">Rabbit</span>
-        <h2>Gear</h2>
-        <p class="description">Shorts, caps, and go-fast accessories.</p>
-      </div>
+    <div class="product-detail">
+  <span class="badge">Rabbit</span>
+  <h2>Rabbit Gear</h2>
+  <div class="features">
+    <span class="feature-tag">🎽 Performance Shorts</span>
+    <span class="feature-tag">🧢 Lightweight Caps</span>
+    <span class="feature-tag">⚡ Speed-Focused Design</span>
+  </div>
+  <p class="description">Essential running accessories built for comfort and speed.</p>
+</div>
     `,
     rightText: `
       <div class="product-detail">
@@ -882,11 +976,16 @@ document.addEventListener('DOMContentLoaded', () => {
     leftImg: 'image/rabbit/layer-one-blue-removebg-preview.png',
     rightImg: 'image/rabbit/layer-one-pink-removebg-preview.png',
     leftText: `
-      <div class="product-detail">
-        <span class="badge">Rabbit</span>
-        <h2>Long Sleeve</h2>
-        <p class="description">Everyday run add-ons that work hard.</p>
-      </div>
+   <div class="product-detail">
+  <span class="badge">Rabbit</span>
+  <h2>Rabbit Long Sleeve</h2>
+  <div class="features">
+    <span class="feature-tag">☀️ Sun Protection</span>
+    <span class="feature-tag">💨 Moisture-Wicking</span>
+    <span class="feature-tag">🏃 Comfortable Fit</span>
+  </div>
+  <p class="description">Versatile long sleeve shirts for year-round training.</p>
+</div>
     `,
     rightText: `
       <div class="product-detail">
