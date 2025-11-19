@@ -372,6 +372,32 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { capture: false });
 
   // ========================================
+  // BACK COVER LINK FIX
+  // ========================================
+  book.addEventListener('touchstart', e => {
+    const backCoverLink = e.target.closest('.cover--back a');
+    if (backCoverLink) {
+      e.stopImmediatePropagation();
+    }
+  }, { capture: true, passive: false });
+
+  book.addEventListener('touchend', e => {
+    const backCoverLink = e.target.closest('.cover--back a');
+    if (backCoverLink) {
+      e.stopImmediatePropagation();
+      e.preventDefault();
+      window.open(backCoverLink.href, '_blank');
+    }
+  }, { capture: true, passive: false });
+
+  book.addEventListener('click', e => {
+    const backCoverLink = e.target.closest('.cover--back a');
+    if (backCoverLink) {
+      e.stopImmediatePropagation();
+    }
+  }, { capture: true });
+
+  // ========================================
   // MOBILE COVER TAP
   // ========================================
   book.addEventListener('touchend', e => {
